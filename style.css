@@ -1,216 +1,138 @@
-* {
-    box-sizing: border-box;
+body{
+
     font-family: Arial, sans-serif;
-}
-
-
-body {
-
-    margin: 0;
-    padding: 20px;
-
-    background: #1b1b2f;
-
-    color: white;
-
-    text-align: center;
+    background:#111827;
+    color:white;
+    text-align:center;
+    margin:0;
+    padding:10px;
 
 }
 
 
+h1{
 
-header {
-
-    margin-bottom: 20px;
-
-}
-
-
-
-h1 {
-
-    color: #ffcb05;
-
-    text-shadow: 2px 2px 4px black;
+    font-size:28px;
 
 }
 
 
+/* BOTONES */
 
-button {
+button{
 
-    background: #3b4cca;
-
-    color: white;
-
-    border: none;
-
-    padding: 5px 8px;
-
-    margin: 3px;
-
-    border-radius: 8px;
-
-    cursor: pointer;
-
-    font-size: 12px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    margin:3px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:13px;
 
 }
 
 
-button:hover {
+button:hover{
 
-    background: #ffcb05;
-
-    color: black;
+    transform:scale(1.05);
 
 }
 
 
 
-#estado {
-
-    margin: 15px;
-
-    font-size: 18px;
-
-    background: rgba(0,0,0,0.3);
-
-    padding: 10px;
-
-    border-radius: 10px;
-
-}
-
-
-
-#preguntas {
-
-    margin-bottom: 20px;
-
-}
-
-
-
-#preguntaLibre {
-
-    margin: 20px;
-
-}
-
-
-
-input {
-
-    padding: 10px;
-
-    width: 250px;
-
-    border-radius: 10px;
-
-    border: none;
-
-    font-size: 16px;
-
-}
-
-
-
+/* TABLERO */
 
 #tablero{
 
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
-    gap:8px;
+    grid-template-columns:
+    repeat(auto-fit,minmax(120px,1fr));
+
+    gap:12px;
+
+    max-width:900px;
+    margin:15px auto;
 
 }
 
+
+
+/* CARTAS */
 
 .carta{
 
-    padding:5px;
-    text-align:center;
+    background:linear-gradient(
+    145deg,
+    #ffffff,
+    #dbeafe
+    );
+
+
+    color:#111;
+
+    border:3px solid #facc15;
+
+    border-radius:18px;
+
+    padding:8px;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,0.4);
+
+
+    transition:0.3s;
+
+    cursor:pointer;
 
 }
 
+
+
+.carta:hover{
+
+    transform:translateY(-8px) scale(1.05);
+
+}
+
+
+
+/* IMAGEN */
 
 .carta img{
 
-    width:80px;
-    height:80px;
+    width:100px;
+    height:100px;
 
 }
 
+
+
+/* NOMBRE */
 
 .carta h3{
 
-    font-size:14px;
-    margin:2px;
+    margin:5px;
+
+    font-size:16px;
 
 }
 
+
+
+/* TIPOS */
 
 .carta p{
 
-    font-size:11px;
+    background:#111827;
 
-}
+    color:white;
 
+    border-radius:8px;
 
+    padding:4px;
 
-
-
-.carta {
-
-    background: white;
-
-    color: black;
-
-    border-radius: 15px;
-
-    padding: 10px;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-
-    box-shadow: 0 5px 10px black;
-
-}
-
-
-
-.carta:hover {
-
-    transform: scale(1.05);
-
-}
-
-
-
-.carta img {
-
-    width: 120px;
-
-    height: 120px;
-
-}
-
-
-
-.carta h3 {
-
-    margin: 5px;
-
-    color: #3b4cca;
-
-}
-
-
-
-.carta p {
-
-    margin: 5px;
+    font-size:12px;
 
 }
 
@@ -218,32 +140,83 @@ input {
 
 /* CARTA DESCARTADA */
 
-.descartada {
+.carta.descartada{
 
-    opacity: 0.35;
+    filter:grayscale(100%);
 
-    filter: grayscale(100%);
+    opacity:0.35;
 
-    transform: scale(0.95);
-
-}
-
-
-
-.descartada:hover {
-
-    transform: scale(1);
+    transform:scale(0.95);
 
 }
 
 
 
-/* TITULOS DE CATEGORÍAS */
+/* VICTORIA */
 
-h2 {
+#victoria{
 
-    color: #ffcb05;
+    margin:20px;
 
-    margin-top: 15px;
+    font-size:20px;
+
+}
+
+
+
+#victoria img{
+
+    animation:salto 1s infinite;
+
+}
+
+
+
+@keyframes salto{
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+}
+
+
+
+/* MOVIL */
+
+@media(max-width:600px){
+
+    #tablero{
+
+        grid-template-columns:
+        repeat(3,1fr);
+
+        gap:6px;
+
+    }
+
+
+    .carta{
+
+        padding:5px;
+
+    }
+
+
+    .carta img{
+
+        width:65px;
+        height:65px;
+
+    }
+
+
+    .carta h3{
+
+        font-size:12px;
+
+    }
 
 }
