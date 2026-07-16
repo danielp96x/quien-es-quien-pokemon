@@ -1,0 +1,47 @@
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:linear-gradient(135deg,#1e3c72,#2a5298);
+    color:white;
+    text-align:center;
+}
+
+header{
+    padding:30px;
+}
+
+h1{
+    font-size:50px;
+    margin:0;
+    color:#FFD700;
+    text-shadow:3px 3px #003366;
+}
+
+h2{
+    margin-top:10px;
+    font-size:28px;
+}
+
+#jugar{
+    background:#ffcb05;
+    color:#2a75bb;
+    border:none;
+    padding:15px 40px;
+    border-radius:15px;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#jugar:hover{
+    transform:scale(1.08);
+}
+
+#tablero{
+    width:90%;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:20px;
+  }
