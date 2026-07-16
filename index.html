@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Quién es Quién? Pokémon Deluxe</title>
+    <title>¿Quién es ese Pokémon?</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-    <h1>¿QUIÉN ES QUIÉN?</h1>
-    <h2>Pokémon Deluxe</h2>
-</header>
+    <header>
+        <h1>¿Quién es ese Pokémon?</h1>
+        <button id="nuevaPartida">🎲 Nueva partida</button>
+    </header>
 
-<main>
+    <section id="preguntas">
+        <button>¿Es tipo Agua?</button>
+        <button>¿Es tipo Fuego?</button>
+        <button>¿Es tipo Planta?</button>
+        <button>¿Tiene alas?</button>
+        <button>¿Es amarillo?</button>
+        <button>¿Es legendario?</button>
+    </section>
 
-<button id="jugar">
-🎮 Jugar
-</button>
+    <main id="tablero">
+        <!-- Aquí aparecerán las cartas -->
+    </main>
 
-<div id="tablero">
-
-</div>
-
-</main>
-
-<script src="script.js"></script>
+    <script src="data/pokemon.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
