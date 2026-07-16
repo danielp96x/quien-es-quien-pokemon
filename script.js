@@ -1,9 +1,17 @@
-const jugar = document.getElementById("jugar");
+const tablero = document.getElementById("tablero");
 
-jugar.addEventListener("click", iniciarJuego);
+function mostrarPokemon() {
+    tablero.innerHTML = "";
 
-function iniciarJuego(){
-
-    alert("¡Bienvenido a ¿Quién es Quién? Pokémon Deluxe!");
-
+    pokemon.forEach(poke => {
+        tablero.innerHTML += `
+            <div class="carta">
+                <img src="${poke.imagen}" alt="${poke.nombre}">
+                <h3>${poke.nombre}</h3>
+                <p>${poke.tipo.join(" / ")}</p>
+            </div>
+        `;
+    });
 }
+
+mostrarPokemon();
