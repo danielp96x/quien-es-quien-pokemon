@@ -1,3 +1,5 @@
+alert("Script cargado correctamente");
+
 const tablero = document.getElementById("tablero");
 const botonNueva = document.getElementById("nuevaPartida");
 const estado = document.getElementById("estado");
@@ -8,15 +10,15 @@ function mostrarPokemon() {
     pokemon.forEach((poke) => {
         tablero.innerHTML += `
             <div class="carta">
-                <img src="${poke.imagen}">
+                <img src="${poke.imagen}" alt="${poke.nombre}">
                 <h3>${poke.nombre}</h3>
             </div>
         `;
     });
 }
 
-botonNueva.onclick = function () {
-    estado.innerHTML = "🎉 ¡El botón funciona!";
-};
+botonNueva.addEventListener("click", () => {
+    estado.textContent = "🎉 ¡El botón funciona!";
+});
 
 mostrarPokemon();
