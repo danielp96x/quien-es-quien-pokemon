@@ -1,33 +1,151 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>¿Quién es ese Pokémon?</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
+
+
 <body>
 
+
 <header>
-    <h1>¿Quién es ese Pokémon?</h1>
-    <button id="nuevaPartida">🎲 Nueva partida</button>
-   <p id="estado">Pulsa "Nueva partida" para comenzar.</p> 
+
+    <h1>⚡ ¿Quién es ese Pokémon? ⚡</h1>
+
+
+    <button id="nuevaPartida">
+        🎲 Nueva partida
+    </button>
+
+
+    <p id="estado">
+        Pulsa "Nueva partida" para comenzar.
+    </p>
+
+    <div id="victoria"></div> 
+
 </header>
 
-<section id="preguntas">
-    <button>¿Es tipo Agua?</button>
-    <button>¿Es tipo Fuego?</button>
-    <button>¿Es tipo Planta?</button>
-    <button>¿Tiene alas?</button>
-    <button>¿Es amarillo?</button>
-    <button>¿Es legendario?</button>
-</section>
-    <p id="respuesta"></p>
 
-<main id="tablero"></main>
+
+<div id="preguntas">
+
+<h3>⚡ Tipos</h3>
+
+<button onclick="preguntarTipo('Normal')">⚪ Normal</button>
+<button onclick="preguntarTipo('Fuego')">🔥 Fuego</button>
+<button onclick="preguntarTipo('Agua')">💧 Agua</button>
+<button onclick="preguntarTipo('Planta')">🌱 Planta</button>
+<button onclick="preguntarTipo('Eléctrico')">⚡ Eléctrico</button>
+<button onclick="preguntarTipo('Hielo')">❄️ Hielo</button>
+<button onclick="preguntarTipo('Lucha')">🥊 Lucha</button>
+<button onclick="preguntarTipo('Veneno')">☠️ Veneno</button>
+<button onclick="preguntarTipo('Tierra')">🌎 Tierra</button>
+<button onclick="preguntarTipo('Volador')">🪽 Volador</button>
+<button onclick="preguntarTipo('Psíquico')">🔮 Psíquico</button>
+<button onclick="preguntarTipo('Bicho')">🐛 Bicho</button>
+<button onclick="preguntarTipo('Roca')">🪨 Roca</button>
+<button onclick="preguntarTipo('Fantasma')">👻 Fantasma</button>
+<button onclick="preguntarTipo('Dragón')">🐉 Dragón</button>
+<button onclick="preguntarTipo('Siniestro')">🌑 Siniestro</button>
+<button onclick="preguntarTipo('Acero')">⚙️ Acero</button>
+<button onclick="preguntarTipo('Hada')">✨ Hada</button>
+
+</div>
+
+<h2>🧬 Evolución</h2>
+
+<button onclick="preguntarDato('inicial',true)">
+🥚 ¿Es inicial?
+</button>
+
+<button onclick="preguntarDato('evoluciona',true)">
+🔄 ¿Tiene evolución?
+</button>
+
+<button onclick="preguntarDato('final',true)">
+🏆 ¿Es última forma?
+</button>
+
+
+<h2>⭐ Especial</h2>
+
+<button onclick="preguntarDato('legendario',true)">
+⭐ ¿Es legendario?
+</button>
+
+<button onclick="preguntarDato('mega',true)">
+✨ ¿Tiene Mega?
+</button>
+
+<button onclick="preguntarDato('gigamax',true)">
+🌈 ¿Tiene Gigamax?
+</button>
+
+
+<h2>🌎 Características</h2>
+
+<button onclick="preguntarDato('alas',true)">
+🪽 ¿Tiene alas?
+</button>
+
+<button onclick="preguntarDato('acuatico',true)">
+🌊 ¿Es acuático?
+</button>
+
+
+</div>
+
+
+
+
+<section id="preguntaLibre">
+
+
+    <h2>Pregunta al Pokémon</h2>
+
+
+    <input 
+    id="preguntaJugador"
+    type="text"
+    placeholder="Ejemplo: ¿Es tipo fuego?">
+
+
+    <button onclick="hacerPregunta()">
+        🔎 Preguntar
+    </button>
+
+
+</section>
+
+
+
+
+<p id="respuesta"></p>
+
+
+
+<main id="tablero">
+
+</main>
+
+
+
 
 <script src="data/pokemon.js"></script>
+
 <script src="script.js"></script>
 
+
+
 </body>
+
 </html>
