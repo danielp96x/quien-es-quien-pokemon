@@ -1,58 +1,53 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    text-align: center;
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f4f4;
+    text-align:center;
 }
 
-header {
-    background: #e3350d;
-    color: white;
-    padding: 20px;
+header{
+    background:#e3350d;
+    color:white;
+    padding:20px;
 }
 
-#nuevaPartida {
-    margin-top: 10px;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 10px;
-    background: #ffcb05;
-    color: #2a75bb;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
+#nuevaPartida{
+    background:#ffcb05;
+    color:#2a75bb;
+    border:none;
+    padding:12px 20px;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
 }
 
-#preguntas {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 20px;
+#preguntas{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+    margin:20px;
 }
 
-#preguntas button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 8px;
-    background: #2a75bb;
-    color: white;
-    cursor: pointer;
+#preguntas button{
+    padding:10px;
 }
 
-#tablero {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 15px;
-    padding: 20px;
+#tablero{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:15px;
+    padding:20px;
 }
 
-.carta {
-    background: white;
-    border-radius: 12px;
-    padding: 10px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+.carta{
+    background:white;
+    border-radius:15px;
+    padding:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,.2);
 }
 
-.carta img {
-    width: 100px;
+.carta img{
+    width:120px;
+    height:120px;
+}
