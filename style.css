@@ -1,47 +1,58 @@
-body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:linear-gradient(135deg,#1e3c72,#2a5298);
-    color:white;
-    text-align:center;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    text-align: center;
 }
 
-header{
-    padding:30px;
+header {
+    background: #e3350d;
+    color: white;
+    padding: 20px;
 }
 
-h1{
-    font-size:50px;
-    margin:0;
-    color:#FFD700;
-    text-shadow:3px 3px #003366;
+#nuevaPartida {
+    margin-top: 10px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #ffcb05;
+    color: #2a75bb;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-h2{
-    margin-top:10px;
-    font-size:28px;
+#preguntas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
 }
 
-#jugar{
-    background:#ffcb05;
-    color:#2a75bb;
-    border:none;
-    padding:15px 40px;
-    border-radius:15px;
-    font-size:22px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.3s;
+#preguntas button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #2a75bb;
+    color: white;
+    cursor: pointer;
 }
 
-#jugar:hover{
-    transform:scale(1.08);
+#tablero {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    padding: 20px;
 }
 
-#tablero{
-    width:90%;
-    margin:40px auto;
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:20px;
-  }
+.carta {
+    background: white;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+.carta img {
+    width: 100px;
