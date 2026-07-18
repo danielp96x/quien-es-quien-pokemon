@@ -381,6 +381,17 @@ contadorPreguntas++;
 }
 
 
+// PANEL DE FILTROS
+
+const btnFiltros = document.getElementById("btnFiltros");
+const panelFiltros = document.getElementById("panelFiltros");
+
+btnFiltros.onclick = function(){
+
+    panelFiltros.classList.toggle("oculto");
+
+};
+
 
 // BOTÓN
 
