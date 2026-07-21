@@ -248,6 +248,28 @@ main{
 
 
 .panel-preguntas{
+    .panel-preguntas{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:6px;
+
+    margin-top:10px;
+
+}
+
+
+.panel-preguntas button{
+
+    font-size:13px;
+
+    padding:8px 4px;
+
+    border-radius:10px;
+
+}
 
     margin-top:15px;
 
@@ -403,5 +425,21 @@ main{
     color:white;
 
     font-weight:bold;
+
+}
+@media(max-width:600px){
+
+    .panel-preguntas{
+
+        grid-template-columns:repeat(3,1fr);
+
+    }
+
+
+    .panel-preguntas button{
+
+        min-height:38px;
+
+    }
 
 }
