@@ -35,11 +35,10 @@ function nuevaPartida(){
         .sort(() => Math.random() - 0.5);
 
 
-    partidaActual.pokemonTablero =
-        mezcla.slice(
-            0,
-            Math.min(30, mezcla.length)
-        );
+    // Crear tablero de 30 Pokémon
+
+partidaActual.pokemonTablero =
+mezcla.slice(0,30);
 
 
     console.log(
