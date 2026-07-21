@@ -92,7 +92,7 @@ function mostrarTablero(){
 
 
         carta.className =
-        "pokemon-card";
+        "pokemon-card oculta";
 
 
         carta.innerHTML = `

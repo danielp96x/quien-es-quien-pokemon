@@ -294,3 +294,35 @@ main {
     align-items:center;
     height:100%;
 }
+
+
+.pokemon-card{
+    background:white;
+    border-radius:15px;
+    padding:10px;
+    text-align:center;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+
+.pokemon-card:hover{
+    transform:scale(1.05);
+}
+
+
+.pokemon-card img{
+    width:90px;
+    height:90px;
+}
+
+
+.pokemon-card h3{
+    font-size:16px;
+    margin:5px;
+}
+
+
+.oculta h3{
+    color:#333;
+}
