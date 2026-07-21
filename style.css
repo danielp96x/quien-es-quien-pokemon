@@ -325,3 +325,83 @@ main{
 
 
 }
+
+#respuesta{
+
+    margin-top:10px;
+
+    padding:10px 20px;
+
+    border-radius:15px;
+
+    background:rgba(0,0,0,.35);
+
+    font-weight:bold;
+
+    text-align:center;
+
+}
+
+.victoria{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:1000;
+
+}
+
+
+
+.caja-victoria{
+
+    background:white;
+
+    color:#111827;
+
+    padding:25px;
+
+    border-radius:25px;
+
+    text-align:center;
+
+    box-shadow:0 0 30px gold;
+
+}
+
+
+
+.caja-victoria img{
+
+    width:150px;
+
+}
+
+
+
+.caja-victoria button{
+
+    margin-top:15px;
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-weight:bold;
+
+}

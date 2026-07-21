@@ -1,83 +1,213 @@
-<!DOCTYPE html>
-<html lang="es">
+    <!DOCTYPE html>
+    <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>¿Quién es ese Pokémon?</title>
+        <title>¿Quién es ese Pokémon?</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+        <link rel="stylesheet" href="style.css">
+    </head>
 
-<body>
+    <body>
 
-    <header class="top-bar">
+        <header class="top-bar">
 
-        <h1>¿Quién es ese Pokémon?</h1>
+            <h1>¿Quién es ese Pokémon?</h1>
 
-        <div class="stats">
+            <div class="stats">
 
-            <span>⏱ <b id="tiempo">00:00</b></span>
+                <span>⏱ <b id="tiempo">00:00</b></span>
 
-            <span>❓ <b id="preguntas">0</b></span>
+                <span>❓ <b id="preguntas">0</b></span>
 
-            <span>🃏 <b id="restantes">30</b></span>
+                <span>🃏 <b id="restantes">30</b></span>
+                <span id="tiempo">
+    ⏱️ 0s
+    <span id="preguntas">
+    ❓ 0
+    </span>
 
-        </div>
+            </div>
 
-    </header>
-
-
-    <main>
-
-        <button id="nuevaPartida">
-            🚀 Nueva partida
-        </button>
+        </header>
 
 
-        <section id="tablero">
+        <main>
+            <div class="selector">
 
-            <!-- Aquí aparecerán los Pokémon -->
+    <label>
+    🎮 Modo de juego
+    </label>
 
-        </section>
+    <select id="modoJuego">
+
+        <option value="pseudo">
+    🐉 Pseudolegendarios
+    </option>
+
+    <option value="miticos">
+    ✨ Singulares / Míticos
+    </option>
+
+    <option value="ultraentes">
+    👽 Ultraentes
+    </option>
+
+    <option value="paradojas">
+    ⏳ Pokémon Paradoja
+    </option>
+
+    <option value="eevee">
+    🌈 Eeveeluciones
+    </option>
+    <option value="todas">
+    🌎 Todas las generaciones
+    </option>
 
 
-        <section class="panel-preguntas">
+    <option value="gen1">
+    🔴 Generación 1
+    </option>
 
-            <h2>Preguntas</h2>
 
-            <button>
-                🔥 Tipo
+    <option value="gen2">
+    🔵 Generación 2
+    </option>
+
+
+    <option value="gen3">
+    🟢 Generación 3
+    </option>
+
+
+    <option value="legendarios">
+    ⭐ Legendarios
+    </option>
+
+
+    <option value="iniciales">
+    🔥 Iniciales
+    </option>
+
+
+    </select>
+
+    </div>
+
+            <button id="nuevaPartida">
+                🚀 Nueva partida
             </button>
 
-            <button>
-                🌈 Color
-            </button>
 
-            <button>
-                🌎 Generación
-            </button>
+            <section id="tablero">
 
-            <button>
-                🐾 Forma
-            </button>
+                <!-- Aquí aparecerán los Pokémon -->
 
-            <button>
-                ⭐ Especial
-            </button>
-
-        </section>
+            </section>
 
 
-    </main>
+        <div class="panel-preguntas">
 
+
+    <button onclick="filtrarTipo('Fuego')">
+    🔥 Fuego
+    </button>
+
+
+    <button onclick="filtrarTipo('Agua')">
+    💧 Agua
+    </button>
+
+
+    <button onclick="filtrarTipo('Planta')">
+    🌱 Planta
+    </button>
+
+
+    <button onclick="filtrarTipo('Eléctrico')">
+    ⚡ Eléctrico
+    </button>
+
+
+    <button onclick="filtrarTipo('Dragón')">
+    🐉 Dragón
+    </button>
+
+
+ <button onclick="filtrarLegendario()">
+⭐ Legendario
+</button>
+
+
+    <button onclick="activarMiticos()">
+✨ Mítico
+</button>
+<button onclick="filtrarPseudo()">
+🐉 Pseudo
+</button>
+
+
+<button onclick="filtrarUltraente()">
+👽 Ultraente
+</button>
+
+
+<button onclick="filtrarParadoja()">
+⏳ Paradoja
+</button>
+
+
+<button onclick="filtrarEevee()">
+🌈 Eevee
+</button>
+
+
+<button onclick="filtrarInicial()">
+🔥 Inicial
+</button>
+<button onclick="limpiarFiltros()">
+🔄 Limpiar preguntas
+</button>
+
+
+    </div>
+
+
+    <div class="pregunta-libre">
+
+
+    <input 
+    id="pregunta"
+    placeholder="Ej: ¿Tiene alas?"
+    >
+
+
+    <button onclick="preguntaLibre()">
+    🔍 Preguntar
+    </button>
+
+
+    </div>
+
+
+    <div id="respuesta">
+    Haz una pregunta...
+    </div>
+            </section>
+
+
+        </main>
 
     <script src="data/pokemon.js"></script>
+
+    <script src="js/pokedexGenerator.js"></script>
+
     <script src="js/game.js"></script>
-    <script src="js/ui.js"></script>
+
     <script src="script.js"></script>
 
-</body>
+    </body>
 
-</html>
+    </html>
