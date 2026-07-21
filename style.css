@@ -115,48 +115,54 @@ main {
    TABLERO 5 x 6
 ================================ */
 
-#tablero {
+#tablero{
 
-    width: 100%;
+    display:grid;
 
-    max-width: 500px;
+    grid-template-columns:repeat(5,1fr);
 
-    display: grid;
+    gap:10px;
 
-    grid-template-columns: repeat(5,1fr);
+    width:100%;
 
-    gap: 8px;
+    max-width:700px;
+
+    margin:auto;
 
 }
-
 
 /* ===============================
    CARTAS
 ================================ */
 
-.pokemon-card {
+.pokemon-card{
 
-    aspect-ratio: 1 / 1.2;
+    aspect-ratio:1/1;
 
-    background: white;
+    background:white;
 
-    border-radius: 15px;
+    border-radius:12px;
 
-    overflow: hidden;
+    display:flex;
 
-    display: flex;
+    flex-direction:column;
 
-    flex-direction: column;
+    justify-content:center;
 
-    align-items: center;
+    align-items:center;
 
-    justify-content: center;
+    overflow:hidden;
 
-    cursor: pointer;
+}
 
-    transition: transform .2s, opacity .2s;
 
-    box-shadow: 0 5px 15px rgba(0,0,0,.3);
+.pokemon-card img{
+
+    width:70%;
+
+    max-height:70%;
+
+    object-fit:contain;
 
 }
 
@@ -256,30 +262,31 @@ main {
    MÓVIL
 ================================ */
 
-@media(max-width:500px){
+@media(max-width:600px){
 
-    .top-bar h1{
+    #tablero{
 
-        font-size:18px;
+        grid-template-columns:repeat(3,1fr);
+
+        gap:8px;
 
     }
 
 
-    #tablero{
+    .pokemon-card img{
 
-        gap:5px;
+        width:80%;
 
     }
 
 
     .pokemon-card h3{
 
-        display:none;
+        font-size:12px;
 
     }
 
 }
-
 
 .eliminado{
     opacity:0.35;
