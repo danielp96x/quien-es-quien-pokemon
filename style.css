@@ -1,355 +1,296 @@
-body{
+/* =========================================
+   ¿QUIÉN ES ESE POKÉMON? V3.0
+   Diseño principal
+========================================= */
 
-    font-family:'Segoe UI', Arial, sans-serif;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+body {
+
+    min-height: 100vh;
 
     background:
-        linear-gradient(
-            rgba(10,18,35,.82),
-            rgba(10,18,35,.82)
-        ),
-        url("img/fondo/pokemon-fondo.jpg");
+    radial-gradient(circle at top, #2563eb, #111827);
 
-    background-size:cover;
+    color: white;
 
-    background-position:center;
-
-    background-repeat:no-repeat;
-
-    background-attachment:fixed;
-
-    color:white;
-
-    margin:0;
-
-    padding:10px;
-
-    min-height:100vh;
+    display: flex;
+    flex-direction: column;
 
 }
 
 
-header{
+/* ===============================
+   BARRA SUPERIOR
+================================ */
 
-    background:rgba(0,0,0,.45);
+.top-bar {
 
-    backdrop-filter:blur(12px);
+    padding: 10px;
 
-    border-radius:20px;
+    text-align: center;
 
-    padding:18px;
+    background: rgba(0,0,0,0.25);
 
-    max-width:1200px;
-
-    margin:auto;
-
-    margin-top:15px;
-
-    margin-bottom:15px;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.35);
-
-}
-
-h1{
-
-    margin-top:0;
-
-    font-size:30px;
-
-    color:#facc15;
+    backdrop-filter: blur(10px);
 
 }
 
 
-/* BOTONES */
+.top-bar h1 {
 
-button{
+    font-size: 22px;
 
-    background:linear-gradient(
-        135deg,
-        #2563eb,
-        #1d4ed8
-    );
-
-    color:white;
-
-    border:none;
-
-    padding:10px 16px;
-
-    margin:4px;
-
-    border-radius:12px;
-
-    cursor:pointer;
-
-    font-size:14px;
-
-    font-weight:bold;
-
-    transition:.25s;
-
-}
-
-button:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:0 5px 12px rgba(37,99,235,.45);
+    margin-bottom: 10px;
 
 }
 
 
-/* TABLERO */
+.stats {
 
-#tablero{
+    display: flex;
 
-    display:grid;
+    justify-content: center;
 
-    grid-template-columns:repeat(5,130px);
+    gap: 15px;
 
-    justify-content:center;
-
-    gap:10px;
+    font-size: 15px;
 
 }
 
 
-/* CARTAS */
+/* ===============================
+   CONTENIDO
+================================ */
 
-.carta{
+main {
 
-    background:linear-gradient(
-        180deg,
-        #ffffff,
-        #eef4ff
-    );
+    flex: 1;
 
-    border:2px solid #f7c600;
+    padding: 10px;
 
-    border-radius:14px;
+    display: flex;
 
-    padding:5px;
+    flex-direction: column;
 
-    text-align:center;
-
-    transition:.25s;
-
-    cursor:pointer;
-
-    box-shadow:0 8px 20px rgba(0,0,0,.25);
+    align-items: center;
 
 }
 
 
-.carta:hover{
+/* ===============================
+   BOTÓN NUEVA PARTIDA
+================================ */
 
-    transform:translateY(-8px) scale(1.05);
+#nuevaPartida {
 
-}
+    margin: 10px;
 
+    padding: 12px 25px;
 
+    border: none;
 
-/* IMAGEN */
+    border-radius: 20px;
 
-.carta img{
+    background: #facc15;
 
-    width:55px;
+    color: #111827;
 
-    height:55px;
+    font-size: 16px;
 
-    object-fit:contain;
+    font-weight: bold;
 
-}
-
-/* NOMBRE */
-
-.carta h3{
-
-    margin:4px 0;
-
-    font-size:12px;
+    cursor: pointer;
 
 }
 
 
+/* ===============================
+   TABLERO 5 x 6
+================================ */
 
-/* TIPOS */
+#tablero {
 
-.carta p{
+    width: 100%;
 
-    background:#162235;
+    max-width: 500px;
 
-    color:white;
+    display: grid;
 
-    border-radius:25px;
+    grid-template-columns: repeat(5,1fr);
 
-    font-size:12px;
-
-    padding:4px;
-
-    margin-top:4px;
-
-}
-
-
-
-/* CARTA DESCARTADA */
-
-.carta.descartada{
-
-    filter:grayscale(100%);
-
-    opacity:0.35;
-
-    transform:scale(0.95);
+    gap: 8px;
 
 }
 
 
+/* ===============================
+   CARTAS
+================================ */
 
-/* VICTORIA */
+.pokemon-card {
 
-#victoria{
+    aspect-ratio: 1 / 1.2;
 
-    margin:20px;
+    background: white;
 
-    font-size:20px;
+    border-radius: 15px;
 
-}
+    overflow: hidden;
 
+    display: flex;
 
+    flex-direction: column;
 
-#victoria img{
+    align-items: center;
 
-    animation:salto 1s infinite;
+    justify-content: center;
 
-}
+    cursor: pointer;
 
+    transition: transform .2s, opacity .2s;
 
-
-@keyframes salto{
-
-    50%{
-
-        transform:translateY(-10px);
-
-    }
-
-}
-
-
-
-/* MOVIL */
-
-@media(max-width:600px){
-
-    #tablero{
-
-        grid-template-columns:
-        repeat(3,1fr);
-
-        gap:6px;
-
-    }
-
-
-    .carta{
-
-        padding:5px;
-
-    }
-
-
-    .carta img{
-
-        width:65px;
-        height:65px;
-
-    }
-
-
-    .carta h3{
-
-        font-size:12px;
-
-    }
+    box-shadow: 0 5px 15px rgba(0,0,0,.3);
 
 }
 
 
+.pokemon-card:hover {
 
-.oculto{
-    display:none;
-}
-
-#panelFiltros{
-
-    width:260px;
-
-    min-width:260px;
-
-    background:rgba(18,25,40,.88);
-
-    border-radius:20px;
-
-    padding:15px;
-
-    backdrop-filter:blur(12px);
-
-    box-shadow:0 10px 25px rgba(0,0,0,.35);
+    transform: scale(1.05);
 
 }
 
 
-#preguntaLibre{
+.pokemon-card img {
 
-    max-width:900px;
+    width: 85%;
 
-    margin:20px auto;
+    height: 85%;
 
-    background:#1e293b;
-
-    padding:20px;
-
-    border-radius:18px;
+    object-fit: contain;
 
 }
 
-#preguntaJugador{
 
-    width:70%;
+.pokemon-card h3 {
 
-    padding:12px;
+    color: #111827;
 
-    border-radius:10px;
-
-    border:none;
-
-    font-size:15px;
+    font-size: 11px;
 
 }
 
-/*==============================*/
-/* CONTENEDOR PRINCIPAL */
-/*==============================*/
 
-.contenido{
+/* ===============================
+   CARTA DESCARTADA
+================================ */
+
+.eliminado {
+
+    opacity: .45;
+
+    filter: grayscale(100%);
+
+    position: relative;
+
+}
+
+
+.eliminado::after {
+
+    content:"❌";
+
+    position:absolute;
+
+    font-size:45px;
+
+}
+
+
+/* ===============================
+   PANEL PREGUNTAS
+================================ */
+
+.panel-preguntas {
+
+    margin-top: 15px;
+
+    width:100%;
+
+    max-width:500px;
 
     display:flex;
 
-    align-items:flex-start;
+    flex-wrap:wrap;
 
-    gap:20px;
+    justify-content:center;
 
-    max-width:1400px;
-
-    margin:20px auto;
+    gap:8px;
 
 }
 
-.zonaJuego{
 
-    flex:1;
+.panel-preguntas button {
 
+    padding:8px 12px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+/* ===============================
+   MÓVIL
+================================ */
+
+@media(max-width:500px){
+
+    .top-bar h1{
+
+        font-size:18px;
+
+    }
+
+
+    #tablero{
+
+        gap:5px;
+
+    }
+
+
+    .pokemon-card h3{
+
+        display:none;
+
+    }
+
+}
+
+
+.eliminado{
+    opacity:0.35;
+    filter: grayscale(100%);
+    position:relative;
+}
+
+.cruz{
+    font-size:45px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100%;
 }
