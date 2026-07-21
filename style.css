@@ -443,3 +443,84 @@ main{
     }
 
 }
+/* =================================
+   AJUSTE FINAL MÓVIL
+================================= */
+
+
+body{
+
+    overflow-x:hidden;
+
+}
+
+
+.top-bar h1{
+
+    font-size:22px;
+
+    margin:5px;
+
+}
+
+
+#tablero{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:6px;
+
+}
+
+
+.pokemon-card{
+
+    aspect-ratio:1/1;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+}
+
+
+.pokemon-card img{
+
+    width:80%;
+
+}
+
+
+.panel-preguntas{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:5px;
+
+}
+
+
+.panel-preguntas button{
+
+    padding:7px 3px;
+
+    font-size:12px;
+
+}
+
+
+#respuesta{
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    margin:8px;
+
+}
