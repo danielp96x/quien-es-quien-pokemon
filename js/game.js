@@ -481,8 +481,8 @@ partidaActual.preguntas++;
 
         carta.style.boxShadow =
         "0 0 25px gold";
-
-
+        
+        carta.classList.add("ganador");
        mostrarVictoria(pokemon);
 
 

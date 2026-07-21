@@ -524,3 +524,83 @@ body{
     margin:8px;
 
 }
+
+/* ===============================
+   ANIMACIONES CARTAS
+================================ */
+
+
+.pokemon-card{
+
+    transition:
+    transform .2s,
+    opacity .3s;
+
+    cursor:pointer;
+
+}
+
+
+.pokemon-card:active{
+
+    transform:scale(0.92);
+
+}
+
+
+.pokemon-card.eliminado{
+
+    animation:
+    desaparecer .4s forwards;
+
+}
+
+
+@keyframes desaparecer{
+
+
+0%{
+
+    transform:scale(1);
+
+    opacity:1;
+
+}
+
+
+100%{
+
+    transform:scale(0);
+
+    opacity:0;
+
+}
+
+
+}
+.ganador{
+
+    animation:
+    ganar .8s infinite alternate;
+
+}
+
+
+@keyframes ganar{
+
+
+from{
+
+transform:scale(1);
+
+}
+
+
+to{
+
+transform:scale(1.1);
+
+}
+
+
+}
