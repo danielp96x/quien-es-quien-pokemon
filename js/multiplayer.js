@@ -7,15 +7,19 @@ let partidaMulti = {
 
     jugador:null,
 
-    rival:null,
+    pokemonJugador1:null,
 
-    turno:null,
+    pokemonJugador2:null,
 
-    pokemonSecreto:null
+    listo1:false,
+
+    listo2:false
 
 };
 
 
+
+// CREAR SALA
 
 function crearSala(){
 
@@ -26,49 +30,152 @@ function crearSala(){
     .toUpperCase();
 
 
-    partidaMulti.sala = codigo;
+    partidaMulti.sala=codigo;
+
+    partidaMulti.jugador=1;
 
 
     alert(
-        "🎮 Sala creada\nCódigo: " + codigo
+        "🎮 Sala creada\nCódigo: "
+        + codigo
+        +
+        "\nEres jugador 1"
     );
 
-
-    console.log(
-        "Sala:",
-        codigo
-    );
 
 }
 
 
 
+// UNIRSE
+
 function unirseSala(){
 
     let codigo =
     prompt(
-        "Introduce código de sala:"
+        "Código de sala:"
     );
 
 
-    if(!codigo){
-        return;
-    }
+    if(!codigo)return;
 
 
     partidaMulti.sala =
     codigo.toUpperCase();
 
 
+    partidaMulti.jugador=2;
+
+
     alert(
-        "🔑 Unido a sala: "
-        + partidaMulti.sala
+        "🔑 Unido a sala "
+        +
+        codigo
+        +
+        "\nEres jugador 2"
+    );
+
+}
+
+
+
+// ELEGIR POKEMON
+
+function elegirPokemonMulti(idPokemon){
+
+
+    const pokemon =
+    pokedex.find(
+        p=>p.id===idPokemon
     );
 
 
-    console.log(
-        "Sala unida:",
-        partidaMulti.sala
+    if(!pokemon){
+
+        console.log(
+        "Pokémon no encontrado"
+        );
+
+        return;
+
+    }
+
+
+
+    if(partidaMulti.jugador===1){
+
+        partidaMulti.pokemonJugador1=
+        pokemon;
+
+        partidaMulti.listo1=true;
+
+
+    }
+
+
+    if(partidaMulti.jugador===2){
+
+        partidaMulti.pokemonJugador2=
+        pokemon;
+
+        partidaMulti.listo2=true;
+
+    }
+
+
+
+    alert(
+        "✅ Elegiste "
+        +
+        pokemon.nombre
     );
+
+
+
+    comprobarListos();
+
+}
+
+
+
+
+function comprobarListos(){
+
+
+    if(
+    partidaMulti.listo1 &&
+    partidaMulti.listo2
+    ){
+
+        iniciarDuelo();
+
+    }
+
+
+}
+
+
+
+
+function iniciarDuelo(){
+
+
+alert(
+"🔥 ¡Comienza el duelo!\n\n"+
+"Cada jugador debe descubrir el Pokémon rival"
+);
+
+
+console.log(
+"Jugador 1:",
+partidaMulti.pokemonJugador1
+);
+
+
+console.log(
+"Jugador 2:",
+partidaMulti.pokemonJugador2
+);
+
 
 }
