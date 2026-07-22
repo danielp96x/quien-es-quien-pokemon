@@ -1,456 +1,740 @@
 // =========================================
-// ¿QUIÉN ES ESE POKÉMON? V3.1
-// MOTOR DEL JUEGO
+// ¿QUIÉN ES ESE POKÉMON?
+// GAME ENGINE V3.2
 // =========================================
 
 
-// =========================================
-// VARIABLES GLOBALES
-// =========================================
 const MAX_POKEMON_TABLERO = 30;
+// LIMITES DEL JUEGO
+
+const MAX_PREGUNTAS = 10;
+
+const MAX_INTENTOS = 5;
 
 let tiempo = 0;
-
 let reloj = null;
 
+
 let partidaActual = {
+
     pokemonTablero: [],
     pokemonSecreto: null,
     preguntas: 0,
     errores: 0
+
 };
+
 
 
 // =========================================
 // NUEVA PARTIDA
 // =========================================
 
-function nuevaPartida() {
 
-    // Verificar que la Pokédex esté lista
-    if (
-        typeof pokedexLista !== "undefined" &&
-        !pokedexLista
-    ) {
+function nuevaPartida(){
 
-        alert("⏳ Espera, cargando Pokédex...");
+
+    if(
+        typeof pokedexCompleta === "undefined" ||
+        pokedexCompleta.length === 0
+    ){
+
+        alert("Pokédex no cargada");
         return;
 
     }
 
-    iniciarTiempo();
+
 
     partidaActual.preguntas = 0;
     partidaActual.errores = 0;
-    partidaActual.pokemonTablero = [];
+preguntasUsadas = [];
+    
+    registrarPartida();
+
+
+
+    const selector =
+        document.getElementById("modoJuego");
+
+
+    const modo =
+        selector ? selector.value : "todas";
+
+
+
+    let pokemonDisponibles =
+        [...pokedexCompleta];
+
+
 
     // ==============================
-    // MODO DE JUEGO
+    // FILTRO GENERACIÓN
     // ==============================
 
-    const selectorModo = document.getElementById("modoJuego");
-    const modo = selectorModo ? selectorModo.value : "normal";
 
-    // ==============================
-    // BASE DE POKÉMON
-    // ==============================
+    if(modo.startsWith("gen")){
 
-    let baseJuego =
-        (typeof pokedexCompleta !== "undefined" &&
-            pokedexCompleta.length > 0)
-            ? pokedexCompleta
-            : pokemonData;
 
-    // ==============================
-    // FILTROS POR MODO
-    // ==============================
+        const gen =
+            Number(
+                modo.replace("gen","")
+            );
 
-    switch (modo) {
 
-        case "gen1":
-            baseJuego = baseJuego.filter(p => p.generacion === 1);
-            break;
+        pokemonDisponibles =
+            pokemonDisponibles.filter(
+                p =>
+                p.generacion === gen
+            );
 
-        case "gen2":
-            baseJuego = baseJuego.filter(p => p.generacion === 2);
-            break;
-
-        case "gen3":
-            baseJuego = baseJuego.filter(p => p.generacion === 3);
-            break;
-
-        case "legendarios":
-            baseJuego = baseJuego.filter(p => p.legendario);
-            break;
-
-        case "miticos":
-            baseJuego = baseJuego.filter(p => p.mitico);
-            break;
-
-        case "pseudo":
-            baseJuego = baseJuego.filter(p => p.pseudo);
-            break;
-
-        case "ultraentes":
-            baseJuego = baseJuego.filter(p => p.ultraente);
-            break;
-
-        case "paradojas":
-            baseJuego = baseJuego.filter(p => p.paradoja);
-            break;
-
-        case "eevee":
-            baseJuego = baseJuego.filter(p => p.eevee);
-            break;
-
-        case "iniciales":
-            baseJuego = baseJuego.filter(p => p.inicial);
-            break;
     }
 
-    // ==============================
-    // VALIDAR RESULTADOS
-    // ==============================
 
-    if (baseJuego.length === 0) {
 
-        alert("No existen Pokémon para este modo de juego.");
+    if(pokemonDisponibles.length === 0){
+
+        alert("No hay Pokémon");
         return;
+
     }
 
-    const mezcla = [...baseJuego].sort(() => Math.random() - 0.5);
-
-    let cantidadTablero = MAX_POKEMON_TABLERO;
 
 
 
+    // ==============================
+    // CREAR TABLERO
+    // ==============================
 
-    // En algunos modos mostramos todos los disponibles
-    const TABLERO_COMPLETO = new Set([
-        "pseudo",
-        "miticos",
-        "ultraentes",
-        "paradojas",
-        "eevee"
-    ]);
 
-    if (TABLERO_COMPLETO.has(modo)) {
-        cantidadTablero = baseJuego.length;
-    }
-    cantidadTablero = Math.min(cantidadTablero, baseJuego.length);
+    pokemonDisponibles =
+        pokemonDisponibles.sort(
+            ()=>Math.random()-0.5
+        );
+
+
 
     partidaActual.pokemonTablero =
-        mezcla.slice(0, cantidadTablero);
+        pokemonDisponibles.slice(
+            0,
+            Math.min(
+                MAX_POKEMON_TABLERO,
+                pokemonDisponibles.length
+            )
+        );
 
-    const restantes = document.getElementById("restantes");
 
-    if (restantes) {
-        restantes.textContent = partidaActual.pokemonTablero.length;
-    }
-
-    const preguntas = document.getElementById("preguntas");
-
-    if (preguntas) {
-        preguntas.textContent = "0";
-    }
-
-    // ==============================
-    // ELEGIR POKÉMON SECRETO
-    // ==============================
 
     partidaActual.pokemonSecreto =
         partidaActual.pokemonTablero[
-        Math.floor(
-            Math.random() *
-            partidaActual.pokemonTablero.length
-        )
+            Math.floor(
+                Math.random() *
+                partidaActual.pokemonTablero.length
+            )
         ];
 
-    console.log("Modo:", modo);
 
-    console.log("Pokémon encontrados:", baseJuego.length);
 
-    console.log("Pokémon en tablero:", partidaActual.pokemonTablero.length);
 
-    console.log("Pokémon secreto:", partidaActual.pokemonSecreto);
+    console.log("Modo:",modo);
+    console.log(
+        "Pokémon encontrados:",
+        pokemonDisponibles.length
+    );
 
-    // ==============================
-    // MOSTRAR TABLERO
-    // ==============================
+    console.log(
+        "Tablero:",
+        partidaActual.pokemonTablero.length
+    );
+
+    console.log(
+        "Secreto:",
+        partidaActual.pokemonSecreto
+    );
+
+
+
+    actualizarContadores();
+
 
     mostrarTablero();
-    crearPanelPreguntas(modo);
-}
 
-function mostrarTablero() {
 
-    const tablero = document.getElementById("tablero");
+    crearPanelFiltros();
 
-    if (!tablero) {
-        console.error("❌ No se encontró el tablero.");
-        return;
-    }
-
-    // Limpiar tablero
-    tablero.innerHTML = "";
-
-    // Crear una carta por cada Pokémon
-    partidaActual.pokemonTablero.forEach(pokemon => {
-
-        const carta = crearCartaPokemon(pokemon);
-
-        tablero.appendChild(carta);
-
-    });
 
 }
 
+
+
+
 // =========================================
-// CREAR CARTA POKÉMON
+// TABLERO
 // =========================================
 
-function crearCartaPokemon(pokemon) {
 
-    const carta = document.createElement("div");
+function mostrarTablero(){
 
-    carta.className = "pokemon-card oculta";
 
-    carta.dataset.id = pokemon.id;
-    carta.dataset.nombre = pokemon.nombre;
+    const tablero =
+        document.getElementById("tablero");
+
+
+    if(!tablero)return;
+
+
+
+    tablero.innerHTML="";
+
+
+
+    partidaActual.pokemonTablero.forEach(
+        pokemon=>{
+
+
+            tablero.appendChild(
+                crearCartaPokemon(pokemon)
+            );
+
+
+        }
+    );
+
+
+}
+
+
+
+
+// =========================================
+// CARTAS
+// =========================================
+
+
+function crearCartaPokemon(pokemon){
+
+
+    const carta =
+        document.createElement("div");
+
+
+
+    carta.className =
+        "pokemon-card oculta";
+
+
+
+    carta.dataset.id =
+        pokemon.id;
+
+
 
     carta.innerHTML = `
+
     <div class="pokemon-overlay"></div>
-<img
+
+    <img
     src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png"
-    alt="${pokemon.nombre}"
-    loading="lazy"
->
+    >
 
     <h3>???</h3>
-`;
 
-    carta.addEventListener("click", () => {
-        comprobarPokemon(pokemon, carta);
-    });
+    `;
+
+
+
+    carta.onclick = ()=>{
+
+        comprobarPokemon(
+            pokemon,
+            carta
+        );
+
+    };
+
 
     return carta;
 
 }
+
+
+
+
+
 // =========================================
-// COMPROBAR POKÉMON
+// COMPROBAR RESPUESTA
 // =========================================
 
-function comprobarPokemon(pokemon, carta) {
 
-    // Evitar volver a pulsar una carta eliminada
-    if (carta.classList.contains("eliminado")) return;
+function comprobarPokemon(
+    pokemon,
+    carta
+){
 
-    // ¿Es el Pokémon secreto?
-    if (pokemon.id === partidaActual.pokemonSecreto.id) {
 
-        mostrarMensajeCarta(carta, "🎉 ¡Correcto!");
+    if(
+        pokemon.id ===
+        partidaActual.pokemonSecreto.id
+    ){
+        registrarVictoria();
 
-        setTimeout(() => {
-            mostrarVictoria(pokemon);
-        }, 500);
+        alert(
+            "🎉 Correcto: "
+            +pokemon.nombre
+        );
+
         return;
+
     }
 
-    // Pokémon incorrecto
-    mostrarMensajeCarta(carta, "❌ No es");
 
-    setTimeout(() => {
-        carta.classList.add("eliminado");
-        actualizarContadorRestantes();
-    }, 800);
 
-    partidaActual.errores++;
-    setTimeout(() => {
-        carta.classList.add("eliminado");
-        actualizarContadorRestantes();
-    }, 800);
+    carta.classList.add(
+        "eliminado"
+    );
+
 
     partidaActual.errores++;
+
+
+    actualizarContadores();
+
+
 }
 
 
 
-// =========================================
-// CONTADOR DE PREGUNTAS
-// =========================================
 
-function actualizarContadorPreguntas() {
 
-    const contador = document.getElementById("preguntas");
-
-    if (!contador) return;
-
-    contador.textContent = partidaActual.preguntas;
-
-}
 
 // =========================================
-// CONTADOR DE RESTANTES
+// CONTADORES
 // =========================================
 
-function actualizarContadorRestantes() {
+
+function actualizarContadores(){
+
 
     const restantes =
+        document.getElementById(
+            "restantes"
+        );
+
+
+    if(restantes){
+
+        restantes.textContent =
         document.querySelectorAll(
             ".pokemon-card:not(.eliminado)"
-        ).length;
+        ).length
+        ||
+        partidaActual.pokemonTablero.length;
 
-    const contador =
-        document.getElementById("restantes");
+    }
 
-    if (!contador) return;
-
-    contador.textContent = restantes;
 
 }
 
+
+
+
 // =========================================
-// MENSAJE SOBRE LA CARTA
-// =========================================
-
-function mostrarMensajeCarta(carta, mensaje) {
-
-    const overlay = carta.querySelector(".pokemon-overlay");
-
-    if (!overlay) return;
-
-    overlay.textContent = mensaje;
-
-    overlay.classList.add("mostrar");
-
-    setTimeout(() => {
-
-        overlay.classList.remove("mostrar");
-
-    }, 1500);
-
-}
-// =========================================
-// PANTALLA DE VICTORIA
+// PANEL FILTROS
 // =========================================
 
-function mostrarVictoria(pokemon) {
 
-    detenerTiempo();
-    registrarVictoria();
+function crearPanelFiltros(){
 
-    const minutos = Math.floor(tiempo / 60);
-    const segundos = tiempo % 60;
+    const panel =
+        document.getElementById("panelPreguntas");
 
-    const tiempoTexto =
-        String(minutos).padStart(2, "0") +
-        ":" +
-        String(segundos).padStart(2, "0");
 
-    const pantalla = document.createElement("div");
+    if(!panel) return;
 
-    pantalla.className = "victoria";
-    const stats = obtenerEstadisticas();
-    const puntuacion = calcularPuntuacion();
-    pantalla.innerHTML = `
-        <div class="caja-victoria">
 
-            <h2>🏆 ¡Felicidades!</h2>
+    panel.innerHTML = `
 
-            <img
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png"
-            alt="${pokemon.nombre}">
 
-            <h3>${pokemon.nombre.toUpperCase()}</h3>
-            <p style="font-size:22px;margin:12px 0;">
-    ⭐ <b>${puntuacion}</b> puntos
-</p>
+    <h2>🔎 Preguntas</h2>
 
-            <p>⏱ Tiempo: <b>${tiempoTexto}</b></p>
-<p>❓ Preguntas: <b>${partidaActual.preguntas}</b></p>
-<p>❌ Errores: <b>${partidaActual.errores}</b></p>
 
-<hr style="margin:15px 0">
 
-<p>🏆 Victorias: <b>${stats.victorias}</b></p>
-<p>🎮 Partidas: <b>${stats.partidas}</b></p>
-<p>⚡ Mejor tiempo: <b>${stats.mejorTiempo === null
-            ? "--"
-            : stats.mejorTiempo + " s"
-        }</b></p>
+    <details open>
 
-            <button id="jugarOtra">
-                🔄 Nueva partida
+        <summary>⚔️ Tipos</summary>
+
+        <div class="grupo-filtros">
+
+
+            <button onclick="filtrarTipo('Normal')">
+            Normal
             </button>
 
+            <button onclick="filtrarTipo('Fuego')">
+            🔥 Fuego
+            </button>
+
+            <button onclick="filtrarTipo('Agua')">
+            💧 Agua
+            </button>
+
+            <button onclick="filtrarTipo('Planta')">
+            🌱 Planta
+            </button>
+
+            <button onclick="filtrarTipo('Eléctrico')">
+            ⚡ Eléctrico
+            </button>
+
+            <button onclick="filtrarTipo('Hielo')">
+            ❄️ Hielo
+            </button>
+
+            <button onclick="filtrarTipo('Lucha')">
+            🥊 Lucha
+            </button>
+
+            <button onclick="filtrarTipo('Veneno')">
+            ☠️ Veneno
+            </button>
+
+            <button onclick="filtrarTipo('Tierra')">
+            🌎 Tierra
+            </button>
+
+            <button onclick="filtrarTipo('Volador')">
+            🪽 Volador
+            </button>
+
+            <button onclick="filtrarTipo('Psíquico')">
+            🔮 Psíquico
+            </button>
+
+            <button onclick="filtrarTipo('Bicho')">
+            🐛 Bicho
+            </button>
+
+            <button onclick="filtrarTipo('Roca')">
+            🪨 Roca
+            </button>
+
+            <button onclick="filtrarTipo('Fantasma')">
+            👻 Fantasma
+            </button>
+
+            <button onclick="filtrarTipo('Dragón')">
+            🐉 Dragón
+            </button>
+
+            <button onclick="filtrarTipo('Siniestro')">
+            🌑 Siniestro
+            </button>
+
+            <button onclick="filtrarTipo('Acero')">
+            ⚙️ Acero
+            </button>
+
+            <button onclick="filtrarTipo('Hada')">
+            ✨ Hada
+            </button>
+
+
         </div>
+
+    </details>
+
+
+
+
+
+    <details>
+
+        <summary>🏆 Características</summary>
+
+
+        <div class="grupo-filtros">
+
+
+            <button onclick="filtrarCategoria('legendario','Legendario')">
+            🏆 Legendario
+            </button>
+
+
+            <button onclick="filtrarCategoria('mitico','Mítico')">
+            ✨ Mítico
+            </button>
+
+
+            <button onclick="filtrarCategoria('pseudo','Pseudo')">
+            🐉 Pseudo
+            </button>
+
+
+            <button onclick="filtrarCategoria('inicial','Inicial')">
+            🌱 Inicial
+            </button>
+
+
+            <button onclick="filtrarCategoria('eevee','Eevee')">
+            🦊 Eevee
+            </button>
+
+
+            <button onclick="filtrarCategoria('paradoja','Paradoja')">
+            ⚡ Paradoja
+            </button>
+
+
+            <button onclick="filtrarCategoria('ultraente','Ultraente')">
+            🌀 Ultraente
+            </button>
+
+
+        </div>
+
+
+    </details>
+
+
+
+
+
+
+    <details>
+
+        <summary>🌎 Generación</summary>
+
+
+        <div class="grupo-filtros">
+
+
+            <button onclick="filtrarGeneracion(1)">
+            Gen 1
+            </button>
+
+
+            <button onclick="filtrarGeneracion(2)">
+            Gen 2
+            </button>
+
+
+            <button onclick="filtrarGeneracion(3)">
+            Gen 3
+            </button>
+
+
+            <button onclick="filtrarGeneracion(4)">
+            Gen 4
+            </button>
+
+
+            <button onclick="filtrarGeneracion(5)">
+            Gen 5
+            </button>
+
+
+            <button onclick="filtrarGeneracion(6)">
+            Gen 6
+            </button>
+
+
+            <button onclick="filtrarGeneracion(7)">
+            Gen 7
+            </button>
+
+
+            <button onclick="filtrarGeneracion(8)">
+            Gen 8
+            </button>
+
+
+            <button onclick="filtrarGeneracion(9)">
+            Gen 9
+            </button>
+
+
+        </div>
+
+
+    </details>
+
+
+
+
+
+    <details>
+
+        <summary>🎨 Color</summary>
+
+
+        <div class="grupo-filtros">
+
+
+            <button onclick="filtrarColor('Rojo')">
+            🔴 Rojo
+            </button>
+
+
+            <button onclick="filtrarColor('Azul')">
+            🔵 Azul
+            </button>
+
+
+            <button onclick="filtrarColor('Verde')">
+            🟢 Verde
+            </button>
+
+
+            <button onclick="filtrarColor('Amarillo')">
+            🟡 Amarillo
+            </button>
+
+
+            <button onclick="filtrarColor('Negro')">
+            ⚫ Negro
+            </button>
+
+
+            <button onclick="filtrarColor('Blanco')">
+            ⚪ Blanco
+            </button>
+
+
+            <button onclick="filtrarColor('Rosa')">
+            🩷 Rosa
+            </button>
+
+
+            <button onclick="filtrarColor('Morado')">
+            🟣 Morado
+            </button>
+
+
+            <button onclick="filtrarColor('Marrón')">
+            🟤 Marrón
+            </button>
+
+
+        </div>
+
+
+    </details>
+
+
+
     `;
 
-    document.body.appendChild(pantalla);
-
-    document
-        .getElementById("jugarOtra")
-        .addEventListener("click", () => {
-
-            pantalla.remove();
-            nuevaPartida();
-
-        });
-
 }
-const botonStats = document.getElementById("verEstadisticas");
+// =========================================
+// ACTUALIZAR CONTADOR RESTANTES
+// =========================================
 
-if (botonStats) {
+function actualizarContadorRestantes(){
 
-    botonStats.addEventListener("click", mostrarEstadisticas);
+
+    const cartas =
+        document.querySelectorAll(
+            ".pokemon-card:not(.eliminado)"
+        );
+
+
+    const contador =
+        document.getElementById(
+            "restantes"
+        );
+
+
+    if(contador){
+
+        contador.textContent =
+            cartas.length;
+
+    }
+
 
 }
 // =========================================
-// CALCULAR PUNTUACIÓN
+// BOTÓN ESTADÍSTICAS
 // =========================================
 
-function calcularPuntuacion() {
+const botonStats =
+    document.getElementById("verEstadisticas");
 
-    let puntos = 10000;
 
-    puntos -= tiempo * 10;
+if(botonStats){
 
-    puntos -= partidaActual.errores * 250;
-
-    puntos -= partidaActual.preguntas * 100;
-
-    return Math.max(0, puntos);
+    botonStats.addEventListener(
+        "click",
+        mostrarEstadisticas
+    );
 
 }
+
+
+
 // =========================================
 // MOSTRAR ESTADÍSTICAS
 // =========================================
 
-function mostrarEstadisticas() {
+function mostrarEstadisticas(){
 
-    const stats = obtenerEstadisticas();
 
-    const mejorTiempo =
-        stats.mejorTiempo === null
-            ? "--"
-            : stats.mejorTiempo + " s";
+    if(
+        typeof obtenerEstadisticas !== "function"
+    ){
+
+        alert(
+        "⚠️ Sistema de estadísticas no cargado"
+        );
+
+        return;
+
+    }
+
+
+
+    const stats =
+        obtenerEstadisticas();
+
+
 
     const porcentaje =
         stats.partidas === 0
-            ? 0
-            : Math.round((stats.victorias / stats.partidas) * 100);
+        ? 0
+        :
+        Math.round(
+            (stats.victorias /
+            stats.partidas)
+            *100
+        );
 
-    alert(
-        
-        `📊 ESTADÍSTICAS
 
-🏆 Victorias: ${stats.victorias}
-🎮 Partidas: ${stats.partidas}
-📈 Porcentaje: ${porcentaje}%
-⏱ Mejor tiempo: ${mejorTiempo}
-⭐ Mejor puntuación: ${stats.mejorPuntuacion}
-❓ Preguntas: ${stats.preguntas}
-❌ Errores: ${stats.errores}`
-    );
+
+    alert(`
+
+📊 ESTADÍSTICAS
+
+🏆 Victorias:
+${stats.victorias}
+
+🎮 Partidas:
+${stats.partidas}
+
+📈 Porcentaje:
+${porcentaje}%
+
+⏱ Mejor tiempo:
+${stats.mejorTiempo ?? "--"}
+
+⭐ Mejor puntuación:
+${stats.mejorPuntuacion}
+
+❓ Preguntas:
+${stats.preguntas}
+
+❌ Errores:
+${stats.errores}
+
+`);
 
 }

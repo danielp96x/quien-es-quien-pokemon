@@ -3,5 +3,1440 @@
 // =========================================
 
 const pokemonGen8 = [
+{
+    id:810,
+    nombre:"Grookey",
+    tipos:["Planta"],
+    color:"Verde",
+    generacion:8,
+    inicial:true,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:811,
+    nombre:"Thwackey",
+    tipos:["Planta"],
+    color:"Verde",
+    generacion:8,
+    inicial:true,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:812,
+    nombre:"Rillaboom",
+    tipos:["Planta"],
+    color:"Verde",
+    generacion:8,
+    inicial:true,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:813,
+    nombre:"Scorbunny",
+    tipos:["Fuego"],
+    color:"Blanco",
+    generacion:8,
+    inicial:true,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:814,
+    nombre:"Raboot",
+    tipos:["Fuego"],
+    color:"Blanco",
+    generacion:8,
+    inicial:true,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:815,
+    nombre:"Cinderace",
+    tipos:["Fuego"],
+    color:"Blanco",
+    generacion:8,
+    inicial:true,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:816,
+    nombre:"Sobble",
+    tipos:["Agua"],
+    color:"Azul",
+    generacion:8,
+    inicial:true,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:817,
+    nombre:"Drizzile",
+    tipos:["Agua"],
+    color:"Azul",
+    generacion:8,
+    inicial:true,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:818,
+    nombre:"Inteleon",
+    tipos:["Agua"],
+    color:"Azul",
+    generacion:8,
+    inicial:true,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:819,
+    nombre:"Skwovet",
+    tipos:["Normal"],
+    color:"Marrón",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:820,
+    nombre:"Greedent",
+    tipos:["Normal"],
+    color:"Marrón",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:821,
+    nombre:"Rookidee",
+    tipos:["Volador"],
+    color:"Negro",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:822,
+    nombre:"Corvisquire",
+    tipos:["Volador"],
+    color:"Azul",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:823,
+    nombre:"Corviknight",
+    tipos:["Volador","Acero"],
+    color:"Negro",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:824,
+    nombre:"Blipbug",
+    tipos:["Bicho"],
+    color:"Azul",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:825,
+    nombre:"Dottler",
+    tipos:["Bicho","Psíquico"],
+    color:"Amarillo",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:826,
+    nombre:"Orbeetle",
+    tipos:["Bicho","Psíquico"],
+    color:"Rojo",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:827,
+    nombre:"Nickit",
+    tipos:["Siniestro"],
+    color:"Morado",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:828,
+    nombre:"Thievul",
+    tipos:["Siniestro"],
+    color:"Rojo",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:829,
+    nombre:"Gossifleur",
+    tipos:["Planta"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:830,
+    nombre:"Eldegoss",
+    tipos:["Planta"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+{
+    id:831,
+    nombre:"Wooloo",
+    tipos:["Normal"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:832,
+    nombre:"Dubwool",
+    tipos:["Normal"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:833,
+    nombre:"Chewtle",
+    tipos:["Agua"],
+    color:"Verde",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:834,
+    nombre:"Drednaw",
+    tipos:["Agua","Roca"],
+    color:"Verde",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:835,
+    nombre:"Yamper",
+    tipos:["Eléctrico"],
+    color:"Amarillo",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:836,
+    nombre:"Boltund",
+    tipos:["Eléctrico"],
+    color:"Amarillo",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:837,
+    nombre:"Rolycoly",
+    tipos:["Roca"],
+    color:"Negro",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:838,
+    nombre:"Carkol",
+    tipos:["Roca","Fuego"],
+    color:"Negro",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:839,
+    nombre:"Coalossal",
+    tipos:["Roca","Fuego"],
+    color:"Negro",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:840,
+    nombre:"Applin",
+    tipos:["Planta","Dragón"],
+    color:"Verde",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:841,
+    nombre:"Flapple",
+    tipos:["Planta","Dragón"],
+    color:"Rojo",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:842,
+    nombre:"Appletun",
+    tipos:["Planta","Dragón"],
+    color:"Verde",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:843,
+    nombre:"Silicobra",
+    tipos:["Tierra"],
+    color:"Amarillo",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:844,
+    nombre:"Sandaconda",
+    tipos:["Tierra"],
+    color:"Verde",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:845,
+    nombre:"Cramorant",
+    tipos:["Volador","Agua"],
+    color:"Azul",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:846,
+    nombre:"Arrokuda",
+    tipos:["Agua"],
+    color:"Azul",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:847,
+    nombre:"Barraskewda",
+    tipos:["Agua"],
+    color:"Azul",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:848,
+    nombre:"Toxel",
+    tipos:["Eléctrico","Veneno"],
+    color:"Morado",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:849,
+    nombre:"Toxtricity",
+    tipos:["Eléctrico","Veneno"],
+    color:"Morado",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:850,
+    nombre:"Sizzlipede",
+    tipos:["Fuego","Bicho"],
+    color:"Rojo",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+{
+    id:851,
+    nombre:"Centiskorch",
+    tipos:["Fuego","Bicho"],
+    color:"Rojo",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:852,
+    nombre:"Clobbopus",
+    tipos:["Lucha"],
+    color:"Azul",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:853,
+    nombre:"Grapploct",
+    tipos:["Lucha"],
+    color:"Azul",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:854,
+    nombre:"Sinistea",
+    tipos:["Fantasma"],
+    color:"Morado",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:855,
+    nombre:"Polteageist",
+    tipos:["Fantasma"],
+    color:"Morado",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:856,
+    nombre:"Hatenna",
+    tipos:["Psíquico"],
+    color:"Rosa",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:857,
+    nombre:"Hattrem",
+    tipos:["Psíquico"],
+    color:"Rosa",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:858,
+    nombre:"Hatterene",
+    tipos:["Psíquico","Hada"],
+    color:"Morado",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:859,
+    nombre:"Impidimp",
+    tipos:["Siniestro","Hada"],
+    color:"Morado",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:860,
+    nombre:"Morgrem",
+    tipos:["Siniestro","Hada"],
+    color:"Morado",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:861,
+    nombre:"Grimmsnarl",
+    tipos:["Siniestro","Hada"],
+    color:"Morado",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:862,
+    nombre:"Obstagoon",
+    tipos:["Siniestro","Normal"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:863,
+    nombre:"Perrserker",
+    tipos:["Acero"],
+    color:"Gris",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:864,
+    nombre:"Cursola",
+    tipos:["Fantasma"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:865,
+    nombre:"Sirfetch'd",
+    tipos:["Lucha"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:866,
+    nombre:"Mr. Rime",
+    tipos:["Hielo","Psíquico"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:867,
+    nombre:"Runerigus",
+    tipos:["Tierra","Fantasma"],
+    color:"Negro",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:868,
+    nombre:"Milcery",
+    tipos:["Hada"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:869,
+    nombre:"Alcremie",
+    tipos:["Hada"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:870,
+    nombre:"Falinks",
+    tipos:["Lucha"],
+    color:"Amarillo",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+{
+    id:871,
+    nombre:"Pincurchin",
+    tipos:["Eléctrico"],
+    color:"Amarillo",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:872,
+    nombre:"Snom",
+    tipos:["Hielo","Bicho"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:873,
+    nombre:"Frosmoth",
+    tipos:["Hielo","Bicho"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:874,
+    nombre:"Stonjourner",
+    tipos:["Roca"],
+    color:"Gris",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:875,
+    nombre:"Eiscue",
+    tipos:["Hielo"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:876,
+    nombre:"Indeedee",
+    tipos:["Psíquico","Normal"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:877,
+    nombre:"Morpeko",
+    tipos:["Eléctrico","Siniestro"],
+    color:"Amarillo",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:878,
+    nombre:"Cufant",
+    tipos:["Acero"],
+    color:"Amarillo",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:879,
+    nombre:"Copperajah",
+    tipos:["Acero"],
+    color:"Verde",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:880,
+    nombre:"Dracozolt",
+    tipos:["Eléctrico","Dragón"],
+    color:"Amarillo",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:881,
+    nombre:"Arctozolt",
+    tipos:["Eléctrico","Hielo"],
+    color:"Azul",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:882,
+    nombre:"Dracovish",
+    tipos:["Agua","Dragón"],
+    color:"Azul",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:883,
+    nombre:"Arctovish",
+    tipos:["Agua","Hielo"],
+    color:"Azul",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:884,
+    nombre:"Duraludon",
+    tipos:["Acero","Dragón"],
+    color:"Gris",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:885,
+    nombre:"Dreepy",
+    tipos:["Dragón","Fantasma"],
+    color:"Verde",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:886,
+    nombre:"Drakloak",
+    tipos:["Dragón","Fantasma"],
+    color:"Verde",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:887,
+    nombre:"Dragapult",
+    tipos:["Dragón","Fantasma"],
+    color:"Verde",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:true,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:888,
+    nombre:"Zacian",
+    tipos:["Hada"],
+    color:"Azul",
+    generacion:8,
+    inicial:false,
+    legendario:true,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:889,
+    nombre:"Zamazenta",
+    tipos:["Lucha"],
+    color:"Rojo",
+    generacion:8,
+    inicial:false,
+    legendario:true,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:890,
+    nombre:"Eternatus",
+    tipos:["Veneno","Dragón"],
+    color:"Morado",
+    generacion:8,
+    inicial:false,
+    legendario:true,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+{
+    id:891,
+    nombre:"Kubfu",
+    tipos:["Lucha"],
+    color:"Gris",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:892,
+    nombre:"Urshifu",
+    tipos:["Lucha","Siniestro"],
+    color:"Negro",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:893,
+    nombre:"Zarude",
+    tipos:["Siniestro","Planta"],
+    color:"Verde",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:true,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:894,
+    nombre:"Regieleki",
+    tipos:["Eléctrico"],
+    color:"Amarillo",
+    generacion:8,
+    inicial:false,
+    legendario:true,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:895,
+    nombre:"Regidrago",
+    tipos:["Dragón"],
+    color:"Verde",
+    generacion:8,
+    inicial:false,
+    legendario:true,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:896,
+    nombre:"Glastrier",
+    tipos:["Hielo"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:true,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:897,
+    nombre:"Spectrier",
+    tipos:["Fantasma"],
+    color:"Negro",
+    generacion:8,
+    inicial:false,
+    legendario:true,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:898,
+    nombre:"Calyrex",
+    tipos:["Psíquico","Planta"],
+    color:"Verde",
+    generacion:8,
+    inicial:false,
+    legendario:true,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:899,
+    nombre:"Wyrdeer",
+    tipos:["Normal","Psíquico"],
+    color:"Blanco",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:900,
+    nombre:"Kleavor",
+    tipos:["Bicho","Roca"],
+    color:"Rojo",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:901,
+    nombre:"Ursaluna",
+    tipos:["Tierra","Normal"],
+    color:"Marrón",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:902,
+    nombre:"Basculegion",
+    tipos:["Agua","Fantasma"],
+    color:"Azul",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:903,
+    nombre:"Sneasler",
+    tipos:["Lucha","Veneno"],
+    color:"Morado",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:904,
+    nombre:"Overqwil",
+    tipos:["Siniestro","Veneno"],
+    color:"Negro",
+    generacion:8,
+    inicial:false,
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:905,
+    nombre:"Enamorus",
+    tipos:["Hada","Volador"],
+    color:"Rosa",
+    generacion:8,
+    inicial:false,
+    legendario:true,
+    mitico:false,
+    pseudo:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+}
 
 ];

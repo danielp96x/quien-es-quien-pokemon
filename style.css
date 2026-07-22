@@ -646,3 +646,41 @@ transform:scale(1.1);
     transform:scale(1.05);
 
 }
+details{
+
+    margin:10px auto;
+    padding:10px;
+    background:#222;
+    border-radius:10px;
+    max-width:700px;
+
+}
+
+
+summary{
+
+    cursor:pointer;
+    font-size:20px;
+    font-weight:bold;
+    padding:8px;
+
+}
+
+
+.grupo-filtros{
+
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:10px;
+
+}
+
+
+.grupo-filtros button{
+
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+
+}
