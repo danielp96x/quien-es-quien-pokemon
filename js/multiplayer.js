@@ -1,189 +1,44 @@
-console.log("🎮 Multiplayer cargado");
-
-
 import { database } from "./firebase.js";
 
 import {
     ref,
     set,
     get,
-    child,
     update,
     onValue
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-database.js";
 
-console.log("🎮 Multiplayer con Firebase cargado");
+console.log("🎮 Multiplayer Firebase iniciado");
 
-let partidaMulti = {
-    sala: null,
-    jugador: null,
-    pokemonJugador1: null,
-    pokemonJugador2: null,
-    listo1: false,
-    listo2: false
+const partidaMulti = {
+    codigo: null,
+    jugador: 0,
+    tablero: [],
+    pokemonElegido: null
 };
 
-
-
-async function crearSala() {
-    
-    const codigo = Math.random()
+function generarCodigo() {
+    return Math.random()
         .toString(36)
         .substring(2, 7)
         .toUpperCase();
+}
+async function crearSala() {
 
-    partidaMulti.sala = codigo;
+    const codigo = generarCodigo();
+
+    partidaMulti.codigo = codigo;
     partidaMulti.jugador = 1;
 
-    await set(ref(database, "salas/" + codigo), {
-
-        jugador1: true,
-        jugador2: false,
-        tablero: partidaActual.pokemonTablero.map(p => p.id)
-
-    });
+    await set(
+        ref(database, "salas/" + codigo),
+        {
+            jugador1: true,
+            jugador2: false,
+            tablero: partidaActual.pokemonTablero.map(p => p.id)
+        }
+    );
 
     alert("Sala creada: " + codigo);
 
 }
-
-
-
-async function unirseSala() {
-
-    const codigo = prompt("Código de la sala:");
-
-    if (!codigo) return;
-
-    const salaRef = ref(database, "salas/" + codigo.toUpperCase());
-
-    const snapshot = await get(salaRef);
-
-    if (!snapshot.exists()) {
-        alert("Sala no encontrada");
-        return;
-    }
-
-    const datos = snapshot.val();
-
-    partidaMulti.sala = codigo.toUpperCase();
-    partidaMulti.jugador = 2;
-
-    await update(salaRef, {
-        jugador2: true
-    });
-
-    partidaActual.pokemonTablero =
-        datos.tablero.map(id =>
-            pokedex.find(p => p.id === id)
-        );
-
-    alert("✅ Unido a la sala");
-
-}
-
-
-
-// ELEGIR POKEMON
-
-function elegirPokemonMulti(idPokemon) {
-
-
-    const pokemon =
-        pokedex.find(
-            p => p.id === idPokemon
-        );
-
-
-    if (!pokemon) {
-
-        console.log(
-            "Pokémon no encontrado"
-        );
-
-        return;
-
-    }
-
-
-
-    if (partidaMulti.jugador === 1) {
-
-        partidaMulti.pokemonJugador1 =
-            pokemon;
-
-        partidaMulti.listo1 = true;
-
-
-    }
-
-
-    if (partidaMulti.jugador === 2) {
-
-        partidaMulti.pokemonJugador2 =
-            pokemon;
-
-        partidaMulti.listo2 = true;
-
-    }
-
-
-
-    alert(
-        "✅ Elegiste "
-        +
-        pokemon.nombre
-    );
-
-
-
-    comprobarListos();
-
-}
-
-
-
-
-function comprobarListos() {
-
-
-    if (
-        partidaMulti.listo1 &&
-        partidaMulti.listo2
-    ) {
-
-        iniciarDuelo();
-
-    }
-
-
-}
-
-
-
-
-function iniciarDuelo() {
-
-
-    alert(
-        "🔥 ¡Comienza el duelo!\n\n" +
-        "Cada jugador debe descubrir el Pokémon rival"
-    );
-
-
-    console.log(
-        "Jugador 1:",
-        partidaMulti.pokemonJugador1
-    );
-
-
-    console.log(
-        "Jugador 2:",
-        partidaMulti.pokemonJugador2
-    );
-
-
-}
-window.crearSala = crearSala;
-window.unirseSala = unirseSala;
-window.elegirPokemonMulti = elegirPokemonMulti;
