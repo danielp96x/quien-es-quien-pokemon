@@ -1,0 +1,52 @@
+.ganador{
+
+    box-shadow:0 0 25px gold;
+
+}
+/* =========================================
+   MENSAJE SOBRE LA CARTA
+========================================= */
+
+.pokemon-card{
+
+    position: relative;
+
+}
+
+.pokemon-overlay{
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: rgba(0,0,0,.75);
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    opacity: 0;
+
+    transition: .3s;
+
+    border-radius: 12px;
+
+    pointer-events: none;
+
+    z-index: 10;
+
+}
+
+.pokemon-overlay.mostrar{
+
+    opacity: 1;
+
+}

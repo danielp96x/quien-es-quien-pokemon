@@ -1,190 +1,242 @@
-    <!DOCTYPE html>
-    <html lang="es">
+<!DOCTYPE html>
+<html lang="es">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
 
-        <title>¿Quién es ese Pokémon?</title>
+    <meta charset="UTF-8">
 
-        <link rel="stylesheet" href="style.css">
-    </head>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <body>
+    <title>¿Quién es ese Pokémon?</title>
 
-        <header class="top-bar">
+    <!-- Estilos -->
 
-            <h1>¿Quién es ese Pokémon?</h1>
+    <link rel="stylesheet" href="style.css">
 
-            <div class="stats">
+</head>
 
-                <span>⏱ <b id="tiempo">00:00</b></span>
+<body>
 
-                <span>❓ <b id="preguntas">0</b></span>
+    <!-- ========================================= -->
+    <!-- BARRA SUPERIOR -->
+    <!-- ========================================= -->
 
-                <span>🃏 <b id="restantes">30</b></span>
+    <header class="top-bar">
 
-            </div>
+        <h1>¿Quién es ese Pokémon?</h1>
 
-        </header>
+        <div class="stats">
 
+            <span>⏱️ <b id="tiempo">00:00</b></span>
 
-        <main>
-            <div class="selector">
+            <span>❓ <b id="preguntas">0</b></span>
 
-    <label>
-    🎮 Modo de juego
-    </label>
+            <span>🃏 <b id="restantes">0</b></span>
 
-    <select id="modoJuego">
+        </div>
 
-        <option value="pseudo">
-    🐉 Pseudolegendarios
-    </option>
+    </header>
 
-    <option value="miticos">
-    ✨ Singulares / Míticos
-    </option>
+    <!-- ========================================= -->
+    <!-- CONTENIDO -->
+    <!-- ========================================= -->
 
-    <option value="ultraentes">
-    👽 Ultraentes
-    </option>
+    <main>
 
-    <option value="paradojas">
-    ⏳ Pokémon Paradoja
-    </option>
+        <!-- ============================== -->
+        <!-- MODOS DE JUEGO -->
+        <!-- ============================== -->
 
-    <option value="eevee">
-    🌈 Eeveeluciones
-    </option>
-    <option value="todas">
-    🌎 Todas las generaciones
-    </option>
+        <section class="selector">
 
+            <label for="modoJuego">
+                🎮 Modo de juego
+            </label>
 
-    <option value="gen1">
-    🔴 Generación 1
-    </option>
+            <select id="modoJuego">
 
+                <option value="todas">
+                    🌍 Todas las generaciones
+                </option>
 
-    <option value="gen2">
-    🔵 Generación 2
-    </option>
+                <option value="gen1">
+                    🔴 Generación 1
+                </option>
 
+                <option value="gen2">
+                    🔵 Generación 2
+                </option>
 
-    <option value="gen3">
-    🟢 Generación 3
-    </option>
+                <option value="gen3">
+                    🟢 Generación 3
+                </option>
 
+                <option value="gen4">
+                    💎 Generación 4
+                </option>
 
-    <option value="legendarios">
-    ⭐ Legendarios
-    </option>
+                <option value="gen5">
+                    ⚫ Generación 5
+                </option>
 
+                <option value="gen6">
+                    ✨ Generación 6
+                </option>
 
-    <option value="iniciales">
-    🔥 Iniciales
-    </option>
+                <option value="gen7">
+                    🌞 Generación 7
+                </option>
 
+                <option value="gen8">
+                    🗡️ Generación 8
+                </option>
 
-    </select>
+                <option value="gen9">
+                    💜 Generación 9
+                </option>
 
-    </div>
+                <option value="legendarios">
+                    ⭐ Legendarios
+                </option>
 
-            <button id="nuevaPartida">
-                🚀 Nueva partida
-            </button>
+                <option value="miticos">
+                    ✨ Singulares / Míticos
+                </option>
 
+                <option value="pseudo">
+                    🐉 Pseudolegendarios
+                </option>
 
-            <section id="tablero">
+                <option value="ultraentes">
+                    👽 Ultraentes
+                </option>
 
-                <!-- Aquí aparecerán los Pokémon -->
+                <option value="paradojas">
+                    ⏳ Paradojas
+                </option>
 
-            </section>
+                <option value="eevee">
+                    🌈 Eeveeluciones
+                </option>
 
+                <option value="iniciales">
+                    🔥 Iniciales
+                </option>
 
-        <div class="panel-preguntas">
+            </select>
 
+        </section>
 
-    <button onclick="filtrarTipo('Fuego')">
-    🔥 Fuego
-    </button>
+        <!-- ============================== -->
+        <!-- BOTÓN -->
+        <!-- ============================== -->
 
+        <button id="nuevaPartida">
 
-    <button onclick="filtrarTipo('Agua')">
-    💧 Agua
-    </button>
+            🚀 Nueva partida
 
-
-    <button onclick="filtrarTipo('Planta')">
-    🌱 Planta
-    </button>
-
-
-    <button onclick="filtrarTipo('Eléctrico')">
-    ⚡ Eléctrico
-    </button>
-
-
-    <button onclick="filtrarTipo('Dragón')">
-    🐉 Dragón
-    </button>
-
-
- <button onclick="filtrarLegendario()">
-⭐ Legendario
+        </button>
+        <button id="verEstadisticas">
+    📊 Estadísticas
 </button>
 
+        <!-- ============================== -->
+        <!-- TABLERO -->
+        <!-- ============================== -->
 
-    <button onclick="activarMiticos()">
-✨ Mítico
-</button>
-<button onclick="filtrarPseudo()">
-🐉 Pseudo
-</button>
+        <section
+            id="tablero"
+            aria-label="Tablero de Pokémon"
+        >
 
+            <!-- Se genera automáticamente -->
 
-<button onclick="filtrarUltraente()">
-👽 Ultraente
-</button>
+        </section>
 
+        <!-- ============================== -->
+        <!-- PREGUNTAS -->
+        <!-- ============================== -->
 
-<button onclick="filtrarParadoja()">
-⏳ Paradoja
-</button>
+        <section
+            id="panelPreguntas"
+            class="panel-preguntas"
+        >
 
+            <!-- JavaScript generará los botones -->
 
-<button onclick="filtrarEevee()">
-🌈 Eevee
-</button>
+        </section>
 
+        <!-- ============================== -->
+        <!-- RESPUESTA -->
+        <!-- ============================== -->
 
-<button onclick="filtrarInicial()">
-🔥 Inicial
-</button>
-<button onclick="limpiarFiltros()">
-🔄 Limpiar preguntas
-</button>
+        <section id="respuesta">
 
+            Selecciona una pregunta...
 
-    </div>
+        </section>
 
-    <div id="respuesta">
-    selecciona una pregunta...
-    </div>
-            </section>
+    </main>
 
+    <!-- ========================================= -->
+    <!-- BASE DE DATOS -->
+    <!-- ========================================= -->
+<script src="js/storage.js"></script>
+    <script src="data/color.js"></script>
 
-        </main>
+    <script src="data/tipos.js"></script>
+
+    <script src="data/generaciones.js"></script>
+
+    <script src="data/modos.js"></script>
+
+    <script src="data/preguntas.js"></script>
+
+    <script src="data/pokedex.js"></script>
+
+    <!-- Generaciones -->
+
+    <script src="data/gen1.js"></script>
+
+    <script src="data/gen2.js"></script>
+
+    <script src="data/gen3.js"></script>
+
+    <script src="data/gen4.js"></script>
+
+    <script src="data/gen5.js"></script>
+
+    <script src="data/gen6.js"></script>
+
+    <script src="data/gen7.js"></script>
+
+    <script src="data/gen8.js"></script>
+
+    <script src="data/gen9.js"></script>
+
+    <!-- Pokédex completa -->
 
     <script src="data/pokemon.js"></script>
 
-    <script src="js/pokedexGenerator.js"></script>
+    <!-- ========================================= -->
+    <!-- MOTOR -->
+    <!-- ========================================= -->
 
     <script src="js/game.js"></script>
 
+    <script src="js/filtros.js"></script>
+
+    <script src="js/ui.js"></script>
+
+    <script src="js/tiempos.js"></script>
+
+    <!-- Inicio del juego -->
+
     <script src="script.js"></script>
 
-    </body>
+</body>
 
-    </html>
+</html>

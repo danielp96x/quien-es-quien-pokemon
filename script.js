@@ -1,37 +1,24 @@
 // =========================================
-// ¿QUIÉN ES ESE POKÉMON? V3.0
+// ¿QUIÉN ES ESE POKÉMON? V3.x
 // Archivo principal
 // =========================================
 
+document.addEventListener("DOMContentLoaded", iniciarJuego);
 
-document.addEventListener("DOMContentLoaded", () => {
+function iniciarJuego() {
 
-    console.log("🎮 ¿Quién es ese Pokémon? V3.0 iniciado");
+    console.log("🎮 ¿Quién es ese Pokémon? V3.x iniciado");
 
-    setTimeout(()=>{
+    // Verificar que exista el botón
+    const botonNuevaPartida = document.getElementById("nuevaPartida");
 
-console.log(
-"Pokémon disponibles:",
-typeof pokedexCompleta !== "undefined"
-?
-pokedexCompleta.length
-:
-"base prueba"
-);
+    if (!botonNuevaPartida) {
+        console.error("❌ No se encontró el botón 'Nueva Partida'.");
+        return;
+    }
 
-},3000);
+    // Evento del botón
+    botonNuevaPartida.addEventListener("click", nuevaPartida);
 
-    const botonNuevaPartida =
-        document.getElementById("nuevaPartida");
-
-
-    botonNuevaPartida.addEventListener("click", () => {
-
-        nuevaPartida();
-
-        mostrarTablero();
-
-    });
-
-
-});
+    console.log("✅ Interfaz cargada correctamente.");
+}

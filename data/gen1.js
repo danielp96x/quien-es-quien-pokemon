@@ -1,0 +1,2284 @@
+// =========================================
+// POKEDEX PRINCIPAL V3.1
+// =========================================
+// =========================================
+// GENERACIÓN 1
+// =========================================
+
+
+// =========================================
+// GENERACIÓN 1 (001 - 025)
+// =========================================
+
+
+const pokemonGen1 = [
+
+{
+    id:1,
+    nombre:"Bulbasaur",
+    imagen:"img/pokemon/001.png",
+    generacion:1,
+    tipo:["Planta","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:true,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:2,
+    nombre:"Ivysaur",
+    imagen:"img/pokemon/002.png",
+    generacion:1,
+    tipo:["Planta","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:3,
+    nombre:"Venusaur",
+    imagen:"img/pokemon/003.png",
+    generacion:1,
+    tipo:["Planta","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:4,
+    nombre:"Charmander",
+    imagen:"img/pokemon/004.png",
+    generacion:1,
+    tipo:["Fuego"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:true,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:5,
+    nombre:"Charmeleon",
+    imagen:"img/pokemon/005.png",
+    generacion:1,
+    tipo:["Fuego"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:6,
+    nombre:"Charizard",
+    imagen:"img/pokemon/006.png",
+    generacion:1,
+    tipo:["Fuego","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:7,
+    nombre:"Squirtle",
+    imagen:"img/pokemon/007.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:true,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:8,
+    nombre:"Wartortle",
+    imagen:"img/pokemon/008.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:9,
+    nombre:"Blastoise",
+    imagen:"img/pokemon/009.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:10,
+    nombre:"Caterpie",
+    imagen:"img/pokemon/010.png",
+    generacion:1,
+    tipo:["Bicho"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:11,
+    nombre:"Metapod",
+    imagen:"img/pokemon/011.png",
+    generacion:1,
+    tipo:["Bicho"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:12,
+    nombre:"Butterfree",
+    imagen:"img/pokemon/012.png",
+    generacion:1,
+    tipo:["Bicho","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:13,
+    nombre:"Weedle",
+    imagen:"img/pokemon/013.png",
+    generacion:1,
+    tipo:["Bicho","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:14,
+    nombre:"Kakuna",
+    imagen:"img/pokemon/014.png",
+    generacion:1,
+    tipo:["Bicho","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:15,
+    nombre:"Beedrill",
+    imagen:"img/pokemon/015.png",
+    generacion:1,
+    tipo:["Bicho","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},  
+// =========================================
+// GENERACIÓN 1 (016 - 040)
+// =========================================
+
+
+{
+    id:16,
+    nombre:"Pidgey",
+    imagen:"img/pokemon/016.png",
+    generacion:1,
+    tipo:["Normal","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:17,
+    nombre:"Pidgeotto",
+    imagen:"img/pokemon/017.png",
+    generacion:1,
+    tipo:["Normal","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:18,
+    nombre:"Pidgeot",
+    imagen:"img/pokemon/018.png",
+    generacion:1,
+    tipo:["Normal","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:19,
+    nombre:"Rattata",
+    imagen:"img/pokemon/019.png",
+    generacion:1,
+    tipo:["Normal"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:20,
+    nombre:"Raticate",
+    imagen:"img/pokemon/020.png",
+    generacion:1,
+    tipo:["Normal"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:21,
+    nombre:"Spearow",
+    imagen:"img/pokemon/021.png",
+    generacion:1,
+    tipo:["Normal","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:22,
+    nombre:"Fearow",
+    imagen:"img/pokemon/022.png",
+    generacion:1,
+    tipo:["Normal","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:23,
+    nombre:"Ekans",
+    imagen:"img/pokemon/023.png",
+    generacion:1,
+    tipo:["Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:24,
+    nombre:"Arbok",
+    imagen:"img/pokemon/024.png",
+    generacion:1,
+    tipo:["Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:25,
+    nombre:"Pikachu",
+    imagen:"img/pokemon/025.png",
+    generacion:1,
+    tipo:["Eléctrico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:26,
+    nombre:"Raichu",
+    imagen:"img/pokemon/026.png",
+    generacion:1,
+    tipo:["Eléctrico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:27,
+    nombre:"Sandshrew",
+    imagen:"img/pokemon/027.png",
+    generacion:1,
+    tipo:["Tierra"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:28,
+    nombre:"Sandslash",
+    imagen:"img/pokemon/028.png",
+    generacion:1,
+    tipo:["Tierra"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:29,
+    nombre:"Nidoran♀",
+    imagen:"img/pokemon/029.png",
+    generacion:1,
+    tipo:["Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:30,
+    nombre:"Nidorina",
+    imagen:"img/pokemon/030.png",
+    generacion:1,
+    tipo:["Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:31,
+    nombre:"Nidoqueen",
+    imagen:"img/pokemon/031.png",
+    generacion:1,
+    tipo:["Veneno","Tierra"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:32,
+    nombre:"Nidoran♂",
+    imagen:"img/pokemon/032.png",
+    generacion:1,
+    tipo:["Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:33,
+    nombre:"Nidorino",
+    imagen:"img/pokemon/033.png",
+    generacion:1,
+    tipo:["Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:34,
+    nombre:"Nidoking",
+    imagen:"img/pokemon/034.png",
+    generacion:1,
+    tipo:["Veneno","Tierra"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:35,
+    nombre:"Clefairy",
+    imagen:"img/pokemon/035.png",
+    generacion:1,
+    tipo:["Hada"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:36,
+    nombre:"Clefable",
+    imagen:"img/pokemon/036.png",
+    generacion:1,
+    tipo:["Hada"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:37,
+    nombre:"Vulpix",
+    imagen:"img/pokemon/037.png",
+    generacion:1,
+    tipo:["Fuego"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:38,
+    nombre:"Ninetales",
+    imagen:"img/pokemon/038.png",
+    generacion:1,
+    tipo:["Fuego"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:39,
+    nombre:"Jigglypuff",
+    imagen:"img/pokemon/039.png",
+    generacion:1,
+    tipo:["Normal","Hada"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:40,
+    nombre:"Wigglytuff",
+    imagen:"img/pokemon/040.png",
+    generacion:1,
+    tipo:["Normal","Hada"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:41,
+    nombre:"Zubat",
+    imagen:"img/pokemon/041.png",
+    generacion:1,
+    tipo:["Veneno","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:42,
+    nombre:"Golbat",
+    imagen:"img/pokemon/042.png",
+    generacion:1,
+    tipo:["Veneno","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:43,
+    nombre:"Oddish",
+    imagen:"img/pokemon/043.png",
+    generacion:1,
+    tipo:["Planta","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:44,
+    nombre:"Gloom",
+    imagen:"img/pokemon/044.png",
+    generacion:1,
+    tipo:["Planta","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:45,
+    nombre:"Vileplume",
+    imagen:"img/pokemon/045.png",
+    generacion:1,
+    tipo:["Planta","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:46,
+    nombre:"Paras",
+    imagen:"img/pokemon/046.png",
+    generacion:1,
+    tipo:["Bicho","Planta"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:47,
+    nombre:"Parasect",
+    imagen:"img/pokemon/047.png",
+    generacion:1,
+    tipo:["Bicho","Planta"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:48,
+    nombre:"Venonat",
+    imagen:"img/pokemon/048.png",
+    generacion:1,
+    tipo:["Bicho","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:49,
+    nombre:"Venomoth",
+    imagen:"img/pokemon/049.png",
+    generacion:1,
+    tipo:["Bicho","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:50,
+    nombre:"Diglett",
+    imagen:"img/pokemon/050.png",
+    generacion:1,
+    tipo:["Tierra"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:51,
+    nombre:"Dugtrio",
+    imagen:"img/pokemon/051.png",
+    generacion:1,
+    tipo:["Tierra"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:52,
+    nombre:"Meowth",
+    imagen:"img/pokemon/052.png",
+    generacion:1,
+    tipo:["Normal"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:53,
+    nombre:"Persian",
+    imagen:"img/pokemon/053.png",
+    generacion:1,
+    tipo:["Normal"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:54,
+    nombre:"Psyduck",
+    imagen:"img/pokemon/054.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:55,
+    nombre:"Golduck",
+    imagen:"img/pokemon/055.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:56,
+    nombre:"Mankey",
+    imagen:"img/pokemon/056.png",
+    generacion:1,
+    tipo:["Lucha"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:57,
+    nombre:"Primeape",
+    imagen:"img/pokemon/057.png",
+    generacion:1,
+    tipo:["Lucha"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:58,
+    nombre:"Growlithe",
+    imagen:"img/pokemon/058.png",
+    generacion:1,
+    tipo:["Fuego"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:59,
+    nombre:"Arcanine",
+    imagen:"img/pokemon/059.png",
+    generacion:1,
+    tipo:["Fuego"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:60,
+    nombre:"Poliwag",
+    imagen:"img/pokemon/060.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:61,
+    nombre:"Poliwhirl",
+    imagen:"img/pokemon/061.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:62,
+    nombre:"Poliwrath",
+    imagen:"img/pokemon/062.png",
+    generacion:1,
+    tipo:["Agua","Lucha"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:63,
+    nombre:"Abra",
+    imagen:"img/pokemon/063.png",
+    generacion:1,
+    tipo:["Psíquico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:64,
+    nombre:"Kadabra",
+    imagen:"img/pokemon/064.png",
+    generacion:1,
+    tipo:["Psíquico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:65,
+    nombre:"Alakazam",
+    imagen:"img/pokemon/065.png",
+    generacion:1,
+    tipo:["Psíquico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+{
+    id:66,
+    nombre:"Machop",
+    imagen:"img/pokemon/066.png",
+    generacion:1,
+    tipo:["Lucha"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:67,
+    nombre:"Machoke",
+    imagen:"img/pokemon/067.png",
+    generacion:1,
+    tipo:["Lucha"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:68,
+    nombre:"Machamp",
+    imagen:"img/pokemon/068.png",
+    generacion:1,
+    tipo:["Lucha"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:69,
+    nombre:"Bellsprout",
+    imagen:"img/pokemon/069.png",
+    generacion:1,
+    tipo:["Planta","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:70,
+    nombre:"Weepinbell",
+    imagen:"img/pokemon/070.png",
+    generacion:1,
+    tipo:["Planta","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:71,
+    nombre:"Victreebel",
+    imagen:"img/pokemon/071.png",
+    generacion:1,
+    tipo:["Planta","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:72,
+    nombre:"Tentacool",
+    imagen:"img/pokemon/072.png",
+    generacion:1,
+    tipo:["Agua","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:73,
+    nombre:"Tentacruel",
+    imagen:"img/pokemon/073.png",
+    generacion:1,
+    tipo:["Agua","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:74,
+    nombre:"Geodude",
+    imagen:"img/pokemon/074.png",
+    generacion:1,
+    tipo:["Roca","Tierra"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:75,
+    nombre:"Graveler",
+    imagen:"img/pokemon/075.png",
+    generacion:1,
+    tipo:["Roca","Tierra"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:76,
+    nombre:"Golem",
+    imagen:"img/pokemon/076.png",
+    generacion:1,
+    tipo:["Roca","Tierra"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:77,
+    nombre:"Ponyta",
+    imagen:"img/pokemon/077.png",
+    generacion:1,
+    tipo:["Fuego"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:78,
+    nombre:"Rapidash",
+    imagen:"img/pokemon/078.png",
+    generacion:1,
+    tipo:["Fuego"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:79,
+    nombre:"Slowpoke",
+    imagen:"img/pokemon/079.png",
+    generacion:1,
+    tipo:["Agua","Psíquico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:80,
+    nombre:"Slowbro",
+    imagen:"img/pokemon/080.png",
+    generacion:1,
+    tipo:["Agua","Psíquico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:81,
+    nombre:"Magnemite",
+    imagen:"img/pokemon/081.png",
+    generacion:1,
+    tipo:["Eléctrico","Acero"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:82,
+    nombre:"Magneton",
+    imagen:"img/pokemon/082.png",
+    generacion:1,
+    tipo:["Eléctrico","Acero"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:83,
+    nombre:"Farfetch'd",
+    imagen:"img/pokemon/083.png",
+    generacion:1,
+    tipo:["Normal","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:84,
+    nombre:"Doduo",
+    imagen:"img/pokemon/084.png",
+    generacion:1,
+    tipo:["Normal","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:85,
+    nombre:"Dodrio",
+    imagen:"img/pokemon/085.png",
+    generacion:1,
+    tipo:["Normal","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:86,
+    nombre:"Seel",
+    imagen:"img/pokemon/086.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:87,
+    nombre:"Dewgong",
+    imagen:"img/pokemon/087.png",
+    generacion:1,
+    tipo:["Agua","Hielo"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:88,
+    nombre:"Grimer",
+    imagen:"img/pokemon/088.png",
+    generacion:1,
+    tipo:["Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:89,
+    nombre:"Muk",
+    imagen:"img/pokemon/089.png",
+    generacion:1,
+    tipo:["Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:90,
+    nombre:"Shellder",
+    imagen:"img/pokemon/090.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:91,
+    nombre:"Cloyster",
+    imagen:"img/pokemon/091.png",
+    generacion:1,
+    tipo:["Agua","Hielo"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:92,
+    nombre:"Gastly",
+    imagen:"img/pokemon/092.png",
+    generacion:1,
+    tipo:["Fantasma","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:93,
+    nombre:"Haunter",
+    imagen:"img/pokemon/093.png",
+    generacion:1,
+    tipo:["Fantasma","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:94,
+    nombre:"Gengar",
+    imagen:"img/pokemon/094.png",
+    generacion:1,
+    tipo:["Fantasma","Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:95,
+    nombre:"Onix",
+    imagen:"img/pokemon/095.png",
+    generacion:1,
+    tipo:["Roca","Tierra"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:96,
+    nombre:"Drowzee",
+    imagen:"img/pokemon/096.png",
+    generacion:1,
+    tipo:["Psíquico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:97,
+    nombre:"Hypno",
+    imagen:"img/pokemon/097.png",
+    generacion:1,
+    tipo:["Psíquico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:98,
+    nombre:"Krabby",
+    imagen:"img/pokemon/098.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:99,
+    nombre:"Kingler",
+    imagen:"img/pokemon/099.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:100,
+    nombre:"Voltorb",
+    imagen:"img/pokemon/100.png",
+    generacion:1,
+    tipo:["Eléctrico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:101,
+    nombre:"Electrode",
+    imagen:"img/pokemon/101.png",
+    generacion:1,
+    tipo:["Eléctrico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:102,
+    nombre:"Exeggcute",
+    imagen:"img/pokemon/102.png",
+    generacion:1,
+    tipo:["Planta","Psíquico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:103,
+    nombre:"Exeggutor",
+    imagen:"img/pokemon/103.png",
+    generacion:1,
+    tipo:["Planta","Psíquico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:104,
+    nombre:"Cubone",
+    imagen:"img/pokemon/104.png",
+    generacion:1,
+    tipo:["Tierra"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:105,
+    nombre:"Marowak",
+    imagen:"img/pokemon/105.png",
+    generacion:1,
+    tipo:["Tierra"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:106,
+    nombre:"Hitmonlee",
+    imagen:"img/pokemon/106.png",
+    generacion:1,
+    tipo:["Lucha"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:107,
+    nombre:"Hitmonchan",
+    imagen:"img/pokemon/107.png",
+    generacion:1,
+    tipo:["Lucha"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:108,
+    nombre:"Lickitung",
+    imagen:"img/pokemon/108.png",
+    generacion:1,
+    tipo:["Normal"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:109,
+    nombre:"Koffing",
+    imagen:"img/pokemon/109.png",
+    generacion:1,
+    tipo:["Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:110,
+    nombre:"Weezing",
+    imagen:"img/pokemon/110.png",
+    generacion:1,
+    tipo:["Veneno"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:111,
+    nombre:"Rhyhorn",
+    imagen:"img/pokemon/111.png",
+    generacion:1,
+    tipo:["Tierra","Roca"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:112,
+    nombre:"Rhydon",
+    imagen:"img/pokemon/112.png",
+    generacion:1,
+    tipo:["Tierra","Roca"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:113,
+    nombre:"Chansey",
+    imagen:"img/pokemon/113.png",
+    generacion:1,
+    tipo:["Normal"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:114,
+    nombre:"Tangela",
+    imagen:"img/pokemon/114.png",
+    generacion:1,
+    tipo:["Planta"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:115,
+    nombre:"Kangaskhan",
+    imagen:"img/pokemon/115.png",
+    generacion:1,
+    tipo:["Normal"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:116,
+    nombre:"Horsea",
+    imagen:"img/pokemon/116.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:117,
+    nombre:"Seadra",
+    imagen:"img/pokemon/117.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:118,
+    nombre:"Goldeen",
+    imagen:"img/pokemon/118.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:119,
+    nombre:"Seaking",
+    imagen:"img/pokemon/119.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:120,
+    nombre:"Staryu",
+    imagen:"img/pokemon/120.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:121,
+    nombre:"Starmie",
+    imagen:"img/pokemon/121.png",
+    generacion:1,
+    tipo:["Agua","Psíquico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:122,
+    nombre:"Mr. Mime",
+    imagen:"img/pokemon/122.png",
+    generacion:1,
+    tipo:["Psíquico","Hada"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:123,
+    nombre:"Scyther",
+    imagen:"img/pokemon/123.png",
+    generacion:1,
+    tipo:["Bicho","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:124,
+    nombre:"Jynx",
+    imagen:"img/pokemon/124.png",
+    generacion:1,
+    tipo:["Hielo","Psíquico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:125,
+    nombre:"Electabuzz",
+    imagen:"img/pokemon/125.png",
+    generacion:1,
+    tipo:["Eléctrico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:126,
+    nombre:"Magmar",
+    imagen:"img/pokemon/126.png",
+    generacion:1,
+    tipo:["Fuego"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:127,
+    nombre:"Pinsir",
+    imagen:"img/pokemon/127.png",
+    generacion:1,
+    tipo:["Bicho"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:128,
+    nombre:"Tauros",
+    imagen:"img/pokemon/128.png",
+    generacion:1,
+    tipo:["Normal"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:129,
+    nombre:"Magikarp",
+    imagen:"img/pokemon/129.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:130,
+    nombre:"Gyarados",
+    imagen:"img/pokemon/130.png",
+    generacion:1,
+    tipo:["Agua","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:131,
+    nombre:"Lapras",
+    imagen:"img/pokemon/131.png",
+    generacion:1,
+    tipo:["Agua","Hielo"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:132,
+    nombre:"Ditto",
+    imagen:"img/pokemon/132.png",
+    generacion:1,
+    tipo:["Normal"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:133,
+    nombre:"Eevee",
+    imagen:"img/pokemon/133.png",
+    generacion:1,
+    tipo:["Normal"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:true
+},
+
+{
+    id:134,
+    nombre:"Vaporeon",
+    imagen:"img/pokemon/134.png",
+    generacion:1,
+    tipo:["Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:true
+},
+
+{
+    id:135,
+    nombre:"Jolteon",
+    imagen:"img/pokemon/135.png",
+    generacion:1,
+    tipo:["Eléctrico"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:true
+},
+
+{
+    id:136,
+    nombre:"Flareon",
+    imagen:"img/pokemon/136.png",
+    generacion:1,
+    tipo:["Fuego"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:true
+},
+
+{
+    id:137,
+    nombre:"Porygon",
+    imagen:"img/pokemon/137.png",
+    generacion:1,
+    tipo:["Normal"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:138,
+    nombre:"Omanyte",
+    imagen:"img/pokemon/138.png",
+    generacion:1,
+    tipo:["Roca","Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:139,
+    nombre:"Omastar",
+    imagen:"img/pokemon/139.png",
+    generacion:1,
+    tipo:["Roca","Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:140,
+    nombre:"Kabuto",
+    imagen:"img/pokemon/140.png",
+    generacion:1,
+    tipo:["Roca","Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:141,
+    nombre:"Kabutops",
+    imagen:"img/pokemon/141.png",
+    generacion:1,
+    tipo:["Roca","Agua"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:142,
+    nombre:"Aerodactyl",
+    imagen:"img/pokemon/142.png",
+    generacion:1,
+    tipo:["Roca","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:143,
+    nombre:"Snorlax",
+    imagen:"img/pokemon/143.png",
+    generacion:1,
+    tipo:["Normal"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:144,
+    nombre:"Articuno",
+    imagen:"img/pokemon/144.png",
+    generacion:1,
+    tipo:["Hielo","Volador"],
+    legendario:true,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:145,
+    nombre:"Zapdos",
+    imagen:"img/pokemon/145.png",
+    generacion:1,
+    tipo:["Eléctrico","Volador"],
+    legendario:true,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:146,
+    nombre:"Moltres",
+    imagen:"img/pokemon/146.png",
+    generacion:1,
+    tipo:["Fuego","Volador"],
+    legendario:true,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:147,
+    nombre:"Dratini",
+    imagen:"img/pokemon/147.png",
+    generacion:1,
+    tipo:["Dragón"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:148,
+    nombre:"Dragonair",
+    imagen:"img/pokemon/148.png",
+    generacion:1,
+    tipo:["Dragón"],
+    legendario:false,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:149,
+    nombre:"Dragonite",
+    imagen:"img/pokemon/149.png",
+    generacion:1,
+    tipo:["Dragón","Volador"],
+    legendario:false,
+    mitico:false,
+    pseudo:true,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:150,
+    nombre:"Mewtwo",
+    imagen:"img/pokemon/150.png",
+    generacion:1,
+    tipo:["Psíquico"],
+    legendario:true,
+    mitico:false,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+},
+
+{
+    id:151,
+    nombre:"Mew",
+    imagen:"img/pokemon/151.png",
+    generacion:1,
+    tipo:["Psíquico"],
+    legendario:false,
+    mitico:true,
+    pseudo:false,
+    inicial:false,
+    ultraente:false,
+    paradoja:false,
+    eevee:false
+}
+
+];

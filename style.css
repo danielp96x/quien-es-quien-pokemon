@@ -12,7 +12,7 @@
 }
 
 
-body{
+body {
 
     min-height:100vh;
 
@@ -21,8 +21,8 @@ body{
 
     color:white;
 
+    overflow-x:hidden;
 }
-
 
 /* ===============================
    BARRA SUPERIOR
@@ -248,7 +248,6 @@ main{
 
 
 .panel-preguntas{
-    .panel-preguntas{
 
     display:grid;
 
@@ -269,7 +268,6 @@ main{
 
     border-radius:10px;
 
-}
 
     margin-top:15px;
 
@@ -284,9 +282,6 @@ main{
     gap:8px;
 
 }
-
-
-
 .panel-preguntas button{
 
     padding:8px 12px;
@@ -309,16 +304,6 @@ main{
 
 
 @media(max-width:600px){
-
-
-    #tablero{
-
-        grid-template-columns:repeat(3,1fr);
-
-        gap:8px;
-
-    }
-
 
 
     .pokemon-card{
@@ -448,11 +433,7 @@ main{
 ================================= */
 
 
-body{
 
-    overflow-x:hidden;
-
-}
 
 
 .top-bar h1{
@@ -602,5 +583,66 @@ transform:scale(1.1);
 
 }
 
+
+}
+
+/* ===============================
+   MENSAJE SOBRE LA CARTA
+================================ */
+
+.pokemon-card{
+    position: relative;
+}
+
+.pokemon-overlay{
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0,0,0,.75);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+
+    opacity: 0;
+    transition: opacity .25s;
+
+    pointer-events: none;
+}
+
+.pokemon-overlay.mostrar{
+    opacity: 1;
+} 
+#verEstadisticas{
+
+    margin:8px;
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#2563eb;
+
+    color:white;
+
+    font-weight:bold;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.3);
+
+}
+
+#verEstadisticas:hover{
+
+    transform:scale(1.05);
 
 }

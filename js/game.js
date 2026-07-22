@@ -1,1130 +1,456 @@
 // =========================================
-// ¿QUIÉN ES ESE POKÉMON? V3.0
-// Motor principal del juego
+// ¿QUIÉN ES ESE POKÉMON? V3.1
+// MOTOR DEL JUEGO
 // =========================================
 
-let tiempo = 0;
-let reloj;
-let partidaActual = {
 
+// =========================================
+// VARIABLES GLOBALES
+// =========================================
+const MAX_POKEMON_TABLERO = 30;
+
+let tiempo = 0;
+
+let reloj = null;
+
+let partidaActual = {
     pokemonTablero: [],
     pokemonSecreto: null,
     preguntas: 0,
     errores: 0
-
-};
-// Filtros activos
-
-let filtrosActivos = {
-
-    tipos: [],
-
-    legendario: null,
-
-    mitico: null,
-
-    pseudo: null,
-
-    generacion: null
-
 };
 
-// Crear nueva partida
 
-function nuevaPartida(){
+// =========================================
+// NUEVA PARTIDA
+// =========================================
 
+function nuevaPartida() {
 
-if(
-typeof pokedexLista !== "undefined" &&
-!pokedexLista
-){
+    // Verificar que la Pokédex esté lista
+    if (
+        typeof pokedexLista !== "undefined" &&
+        !pokedexLista
+    ) {
 
-    alert(
-    "⏳ Espera, cargando Pokédex..."
-    );
+        alert("⏳ Espera, cargando Pokédex...");
+        return;
 
-    return;
-
-}
-
-
-let modo =
-document.getElementById("modoJuego").value;
-
-
-console.log(
-"Modo seleccionado:",
-modo
-);
-
-
-console.log("🚀 Nueva partida creada");
-
+    }
 
     iniciarTiempo();
 
-    console.log("Base Pokémon:", pokemonData);
-    console.log("Cantidad Pokémon:", pokemonData.length);
-
-
+    partidaActual.preguntas = 0;
+    partidaActual.errores = 0;
     partidaActual.pokemonTablero = [];
 
-    partidaActual.preguntas = 0;
-
-    partidaActual.errores = 0;
-
-
-  let baseJuego = pokemonData;
-
-
-if(
-typeof pokedexCompleta !== "undefined" &&
-pokedexCompleta.length > 50
-){
-
-    baseJuego = pokedexCompleta;
-
-}
-
-console.log(
-"Base seleccionada:",
-baseJuego.length
-);
-
-
-if(modo==="gen1"){
-
-baseJuego =
-baseJuego.filter(
-p=>p.generacion===1
-);
-
-}
-
-
-if(modo==="gen2"){
-
-baseJuego =
-baseJuego.filter(
-p=>p.generacion===2
-);
-
-}
-
-
-if(modo==="gen3"){
-
-baseJuego =
-baseJuego.filter(
-p=>p.generacion===3
-);
-
-}
-
-
-if(modo==="legendarios"){
-
-baseJuego =
-baseJuego.filter(
-p=>p.legendario
-);
-
-}
-if(modo==="pseudo"){
-
-baseJuego =
-baseJuego.filter(
-p=>p.pseudo
-);
-
-}
-
-
-if(modo==="miticos"){
-
-baseJuego =
-baseJuego.filter(
-p=>p.mitico
-);
-
-}
-
-
-if(modo==="ultraentes"){
-
-baseJuego =
-baseJuego.filter(
-p=>p.ultraente
-);
-
-}
-
-
-if(modo==="paradojas"){
-
-baseJuego =
-baseJuego.filter(
-p=>p.paradoja
-);
-
-}
-
-
-if(modo==="eevee"){
-
-baseJuego =
-baseJuego.filter(
-p=>p.eevee
-);
-
-}
-
-
-if(modo==="iniciales"){
-
-baseJuego =
-baseJuego.filter(
-p=>p.inicial
-);
-
-}
-
-let mezcla =
-[...baseJuego]
-.sort(
-()=>Math.random()-0.5
-);
-
-
-   // Crear tablero dinámico según categoría
-
-let cantidadTablero = 30;
-
-
-// Categorías especiales
-if(modo==="pseudo"){
-    cantidadTablero = baseJuego.length;
-}
-
-if(modo==="miticos"){
-    cantidadTablero = baseJuego.length;
-}
-
-if(modo==="ultraentes"){
-    cantidadTablero = baseJuego.length;
-}
-
-if(modo==="paradojas"){
-    cantidadTablero = baseJuego.length;
-}
-
-if(modo==="eevee"){
-    cantidadTablero = baseJuego.length;
-}
-
-
-// No superar los disponibles
-cantidadTablero = Math.min(
-    cantidadTablero,
-    baseJuego.length
-);
-
-
-partidaActual.pokemonTablero =
-mezcla.slice(0,cantidadTablero);
-
-    console.log(
-        "Pokémon en tablero:",
-        partidaActual.pokemonTablero.length
-    );
-let contador =
-document.getElementById("restantes");
-
-
-if(contador){
-
-    contador.innerHTML =
-    partidaActual.pokemonTablero.length;
-
-}
-
-    if(partidaActual.pokemonTablero.length > 0){
-
-        partidaActual.pokemonSecreto =
-        partidaActual.pokemonTablero[
-            Math.floor(
-                Math.random() *
-                partidaActual.pokemonTablero.length
-            )
-        ];
-
-
-        console.log(
-            "Pokémon secreto:",
-            partidaActual.pokemonSecreto.nombre
-        );
-
+    // ==============================
+    // MODO DE JUEGO
+    // ==============================
+
+    const selectorModo = document.getElementById("modoJuego");
+    const modo = selectorModo ? selectorModo.value : "normal";
+
+    // ==============================
+    // BASE DE POKÉMON
+    // ==============================
+
+    let baseJuego =
+        (typeof pokedexCompleta !== "undefined" &&
+            pokedexCompleta.length > 0)
+            ? pokedexCompleta
+            : pokemonData;
+
+    // ==============================
+    // FILTROS POR MODO
+    // ==============================
+
+    switch (modo) {
+
+        case "gen1":
+            baseJuego = baseJuego.filter(p => p.generacion === 1);
+            break;
+
+        case "gen2":
+            baseJuego = baseJuego.filter(p => p.generacion === 2);
+            break;
+
+        case "gen3":
+            baseJuego = baseJuego.filter(p => p.generacion === 3);
+            break;
+
+        case "legendarios":
+            baseJuego = baseJuego.filter(p => p.legendario);
+            break;
+
+        case "miticos":
+            baseJuego = baseJuego.filter(p => p.mitico);
+            break;
+
+        case "pseudo":
+            baseJuego = baseJuego.filter(p => p.pseudo);
+            break;
+
+        case "ultraentes":
+            baseJuego = baseJuego.filter(p => p.ultraente);
+            break;
+
+        case "paradojas":
+            baseJuego = baseJuego.filter(p => p.paradoja);
+            break;
+
+        case "eevee":
+            baseJuego = baseJuego.filter(p => p.eevee);
+            break;
+
+        case "iniciales":
+            baseJuego = baseJuego.filter(p => p.inicial);
+            break;
     }
 
+    // ==============================
+    // VALIDAR RESULTADOS
+    // ==============================
+
+    if (baseJuego.length === 0) {
+
+        alert("No existen Pokémon para este modo de juego.");
+        return;
+    }
+
+    const mezcla = [...baseJuego].sort(() => Math.random() - 0.5);
+
+    let cantidadTablero = MAX_POKEMON_TABLERO;
+
+
+
+
+    // En algunos modos mostramos todos los disponibles
+    const TABLERO_COMPLETO = new Set([
+        "pseudo",
+        "miticos",
+        "ultraentes",
+        "paradojas",
+        "eevee"
+    ]);
+
+    if (TABLERO_COMPLETO.has(modo)) {
+        cantidadTablero = baseJuego.length;
+    }
+    cantidadTablero = Math.min(cantidadTablero, baseJuego.length);
+
+    partidaActual.pokemonTablero =
+        mezcla.slice(0, cantidadTablero);
+
+    const restantes = document.getElementById("restantes");
+
+    if (restantes) {
+        restantes.textContent = partidaActual.pokemonTablero.length;
+    }
+
+    const preguntas = document.getElementById("preguntas");
+
+    if (preguntas) {
+        preguntas.textContent = "0";
+    }
+
+    // ==============================
+    // ELEGIR POKÉMON SECRETO
+    // ==============================
+
+    partidaActual.pokemonSecreto =
+        partidaActual.pokemonTablero[
+        Math.floor(
+            Math.random() *
+            partidaActual.pokemonTablero.length
+        )
+        ];
+
+    console.log("Modo:", modo);
+
+    console.log("Pokémon encontrados:", baseJuego.length);
+
+    console.log("Pokémon en tablero:", partidaActual.pokemonTablero.length);
+
+    console.log("Pokémon secreto:", partidaActual.pokemonSecreto);
+
+    // ==============================
+    // MOSTRAR TABLERO
+    // ==============================
 
     mostrarTablero();
-
+    crearPanelPreguntas(modo);
 }
 
-function aplicarFiltrosAvanzados(){
+function mostrarTablero() {
 
-let resultado =
-partidaActual.pokemonTablero;
+    const tablero = document.getElementById("tablero");
 
+    if (!tablero) {
+        console.error("❌ No se encontró el tablero.");
+        return;
+    }
 
-if(filtrosActivos.tipos.length > 0){
-
-resultado =
-resultado.filter(p=>{
-
-return filtrosActivos.tipos.some(
-tipo=>p.tipo.includes(tipo)
-);
-
-});
-
-}
-
-
-if(filtrosActivos.legendario !== null){
-
-resultado =
-resultado.filter(
-p=>p.legendario === filtrosActivos.legendario
-);
-
-}
-
-
-if(filtrosActivos.mitico !== null){
-
-resultado =
-resultado.filter(
-p=>p.mitico === filtrosActivos.mitico
-);
-
-}
-
-
-if(filtrosActivos.pseudo !== null){
-
-resultado =
-resultado.filter(
-p=>p.pseudo === filtrosActivos.pseudo
-);
-
-}
-
-
-if(filtrosActivos.generacion !== null){
-
-resultado =
-resultado.filter(
-p=>p.generacion === filtrosActivos.generacion
-);
-
-}
-
-
-return resultado;
-
-}
-function aplicarFiltrosTablero(){
-
-
-document
-.querySelectorAll(".pokemon-card")
-.forEach((carta,index)=>{
-
-
-let pokemon =
-partidaActual.pokemonTablero[index];
-
-
-let valido = true;
-
-
-// TIPOS
-
-if(filtrosActivos.tipos.length > 0){
-
-valido =
-filtrosActivos.tipos.some(
-tipo=>pokemon.tipo.includes(tipo)
-);
-
-}
-
-
-// LEGENDARIO
-
-if(
-valido &&
-filtrosActivos.legendario !== null
-){
-
-valido =
-pokemon.legendario === 
-filtrosActivos.legendario;
-
-}
-
-
-// MITICO
-
-if(
-valido &&
-filtrosActivos.mitico !== null
-){
-
-valido =
-pokemon.mitico === 
-filtrosActivos.mitico;
-
-}
-
-
-// PSEUDO
-
-if(
-valido &&
-filtrosActivos.pseudo !== null
-){
-
-valido =
-pokemon.pseudo ===
-filtrosActivos.pseudo;
-
-}
-
-
-
-if(!valido){
-
-carta.classList.add(
-"eliminado"
-);
-
-}
-
-
-});
-
-
-}
-// Mostrar tablero
-
-function mostrarTablero(){
-
-    const tablero =
-    document.getElementById("tablero");
-
-
+    // Limpiar tablero
     tablero.innerHTML = "";
 
-
+    // Crear una carta por cada Pokémon
     partidaActual.pokemonTablero.forEach(pokemon => {
 
-
-        const carta =
-        document.createElement("div");
-
-
-        carta.className =
-        "pokemon-card oculta";
-
-
-        carta.innerHTML = `
-
-            <img src="${pokemon.imagen}">
-
-            <h3>???</h3>
-
-        `;
-
-
-        carta.addEventListener("click", function(){
-
-            comprobarPokemon(
-                pokemon,
-                carta
-                
-            );
-
-        });
-
+        const carta = crearCartaPokemon(pokemon);
 
         tablero.appendChild(carta);
 
-
     });
 
 }
 
+// =========================================
+// CREAR CARTA POKÉMON
+// =========================================
 
+function crearCartaPokemon(pokemon) {
 
-// Revisar selección
+    const carta = document.createElement("div");
 
-function comprobarPokemon(pokemon,carta){
+    carta.className = "pokemon-card oculta";
 
-partidaActual.preguntas++; 
+    carta.dataset.id = pokemon.id;
+    carta.dataset.nombre = pokemon.nombre;
 
+    carta.innerHTML = `
+    <div class="pokemon-overlay"></div>
+<img
+    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png"
+    alt="${pokemon.nombre}"
+    loading="lazy"
+>
 
-    if(
-        pokemon.id === partidaActual.pokemonSecreto.id
-    ){
-
-        carta.style.boxShadow =
-        "0 0 25px gold";
-        
-        carta.classList.add("ganador");
-       mostrarVictoria(pokemon);
-
-
-    }else{
-
-
-        carta.classList.add("eliminado");
-
-carta.innerHTML = `
-    <div class="cruz">❌</div>
+    <h3>???</h3>
 `;
 
+    carta.addEventListener("click", () => {
+        comprobarPokemon(pokemon, carta);
+    });
 
-        partidaActual.errores++;
+    return carta;
 
+}
+// =========================================
+// COMPROBAR POKÉMON
+// =========================================
+
+function comprobarPokemon(pokemon, carta) {
+
+    // Evitar volver a pulsar una carta eliminada
+    if (carta.classList.contains("eliminado")) return;
+
+    // ¿Es el Pokémon secreto?
+    if (pokemon.id === partidaActual.pokemonSecreto.id) {
+
+        mostrarMensajeCarta(carta, "🎉 ¡Correcto!");
+
+        setTimeout(() => {
+            mostrarVictoria(pokemon);
+        }, 500);
+        return;
     }
 
+    // Pokémon incorrecto
+    mostrarMensajeCarta(carta, "❌ No es");
+
+    setTimeout(() => {
+        carta.classList.add("eliminado");
+        actualizarContadorRestantes();
+    }, 800);
+
+    partidaActual.errores++;
+    setTimeout(() => {
+        carta.classList.add("eliminado");
+        actualizarContadorRestantes();
+    }, 800);
+
+    partidaActual.errores++;
 }
 
 
-function iniciarTiempo(){
 
-    clearInterval(reloj);
+// =========================================
+// CONTADOR DE PREGUNTAS
+// =========================================
 
-    tiempo = 0;
+function actualizarContadorPreguntas() {
 
-    reloj = setInterval(()=>{
+    const contador = document.getElementById("preguntas");
 
-        tiempo++;
+    if (!contador) return;
 
-        let contador =
-        document.getElementById("tiempo");
-
-        if(contador){
-
-            contador.innerHTML =
-            "⏱️ " + tiempo + "s";
-
-        }
-
-    },1000);
+    contador.textContent = partidaActual.preguntas;
 
 }
 
-// =================================
-// FILTROS
-// =================================
+// =========================================
+// CONTADOR DE RESTANTES
+// =========================================
 
+function actualizarContadorRestantes() {
 
-function filtrarTipo(tipo){
+    const restantes =
+        document.querySelectorAll(
+            ".pokemon-card:not(.eliminado)"
+        ).length;
 
-    partidaActual.preguntas++;
+    const contador =
+        document.getElementById("restantes");
 
+    if (!contador) return;
 
-    let secretoTieneTipo =
-    partidaActual.pokemonSecreto.tipo.includes(tipo);
-
-
-
-    document
-    .querySelectorAll(".pokemon-card")
-    .forEach((carta,index)=>{
-
-
-        let pokemon =
-        partidaActual.pokemonTablero[index];
-
-
-        let tieneTipo =
-        pokemon.tipo.includes(tipo);
-
-
-
-        if(tieneTipo !== secretoTieneTipo){
-
-            carta.classList.add(
-                "eliminado"
-            );
-
-        }
-
-
-    });
-
-
-    mostrarRespuesta(
-        "¿Es tipo " + tipo + "? " +
-        (secretoTieneTipo ? "✅ SÍ" : "❌ NO")
-    );
-
+    contador.textContent = restantes;
 
 }
 
+// =========================================
+// MENSAJE SOBRE LA CARTA
+// =========================================
 
-function filtrarCategoria(propiedad, nombre){
+function mostrarMensajeCarta(carta, mensaje) {
 
+    const overlay = carta.querySelector(".pokemon-overlay");
 
-    partidaActual.preguntas++;
+    if (!overlay) return;
 
+    overlay.textContent = mensaje;
 
-    let respuesta =
-    partidaActual.pokemonSecreto[propiedad];
+    overlay.classList.add("mostrar");
 
+    setTimeout(() => {
 
-    document
-    .querySelectorAll(".pokemon-card")
-    .forEach((carta,index)=>{
+        overlay.classList.remove("mostrar");
 
-
-        let pokemon =
-        partidaActual.pokemonTablero[index];
-
-
-        if(
-            pokemon[propiedad] !== respuesta
-        ){
-
-            carta.classList.add(
-                "eliminado"
-            );
-
-        }
-
-
-    });
-
-
-    mostrarRespuesta(
-        "¿Es " + nombre + "? " +
-        (respuesta ? "✅ SÍ" : "❌ NO")
-    );
-
+    }, 1500);
 
 }
-function filtrarLegendario(){
+// =========================================
+// PANTALLA DE VICTORIA
+// =========================================
 
-filtrarCategoria(
-"legendario",
-"Legendario"
-);
+function mostrarVictoria(pokemon) {
 
-}
+    detenerTiempo();
+    registrarVictoria();
 
+    const minutos = Math.floor(tiempo / 60);
+    const segundos = tiempo % 60;
 
-function filtrarMitico(){
+    const tiempoTexto =
+        String(minutos).padStart(2, "0") +
+        ":" +
+        String(segundos).padStart(2, "0");
 
-filtrarCategoria(
-"mitico",
-"Mítico"
-);
+    const pantalla = document.createElement("div");
 
-}
-
-
-function filtrarPseudo(){
-
-filtrarCategoria(
-"pseudo",
-"Pseudolegendario"
-);
-
-}
-
-
-function filtrarUltraente(){
-
-filtrarCategoria(
-"ultraente",
-"Ultraente"
-);
-
-}
-
-
-function filtrarParadoja(){
-
-filtrarCategoria(
-"paradoja",
-"Paradoja"
-);
-
-}
-
-
-function filtrarEevee(){
-
-filtrarCategoria(
-"eevee",
-"Eeveelución"
-);
-
-}
-
-
-function filtrarInicial(){
-    function limpiarFiltros(){
-
-
-document
-.querySelectorAll(".pokemon-card")
-.forEach(carta=>{
-
-
-carta.classList.remove(
-"eliminado"
-);
-
-
-});
-
-
-partidaActual.preguntas = 0;
-
-
-let contador =
-document.getElementById("preguntas");
-
-
-if(contador){
-
-contador.innerHTML = "0";
-
-}
-
-
-mostrarRespuesta(
-"🔄 Preguntas reiniciadas"
-);
-
-
-}
-
-filtrarCategoria(
-"inicial",
-"Inicial"
-);
-
-}
-aplicarFiltrosTablero();
-
-
-    partidaActual.preguntas++;
-
-
-    document.querySelectorAll(".pokemon-card")
-    .forEach((carta,index)=>{
-
-
-        let pokemon =
-        partidaActual.pokemonTablero[index];
-
-
-        if(!pokemon.legendario){
-
-
-            carta.classList.add(
-                "eliminado"
-            );
-
-
-        }
-
-
-    });
-
-
-
-function mostrarVictoria(pokemon){
-
-
-    clearInterval(reloj);
-
-
-    let ventana =
-    document.createElement("div");
-
-
-    ventana.className =
-    "victoria";
-
-
-    ventana.innerHTML = `
-
+    pantalla.className = "victoria";
+    const stats = obtenerEstadisticas();
+    const puntuacion = calcularPuntuacion();
+    pantalla.innerHTML = `
         <div class="caja-victoria">
 
-            <h2>🎉 ¡Correcto!</h2>
+            <h2>🏆 ¡Felicidades!</h2>
 
-            <img src="${pokemon.imagen}">
+            <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png"
+            alt="${pokemon.nombre}">
 
-            <h3>${pokemon.nombre}</h3>
+            <h3>${pokemon.nombre.toUpperCase()}</h3>
+            <p style="font-size:22px;margin:12px 0;">
+    ⭐ <b>${puntuacion}</b> puntos
+</p>
 
-            <p>
-            ⏱️ Tiempo: ${tiempo}s
-            </p>
+            <p>⏱ Tiempo: <b>${tiempoTexto}</b></p>
+<p>❓ Preguntas: <b>${partidaActual.preguntas}</b></p>
+<p>❌ Errores: <b>${partidaActual.errores}</b></p>
 
-            <p>
-            ❓ Preguntas: ${partidaActual.preguntas}
-            </p>
+<hr style="margin:15px 0">
 
+<p>🏆 Victorias: <b>${stats.victorias}</b></p>
+<p>🎮 Partidas: <b>${stats.partidas}</b></p>
+<p>⚡ Mejor tiempo: <b>${stats.mejorTiempo === null
+            ? "--"
+            : stats.mejorTiempo + " s"
+        }</b></p>
 
-            <button onclick="location.reload()">
-            🔄 Nueva partida
+            <button id="jugarOtra">
+                🔄 Nueva partida
             </button>
 
-
         </div>
-
     `;
 
-
-    document.body.appendChild(ventana);
-
-}
-
-function filtrarMitico(){
-
-function activarMiticos(){
-
-filtrosActivos.mitico = true;
-
-aplicarFiltrosTablero();
-
-}
-partidaActual.preguntas++;
-
-
-let respuesta =
-partidaActual.pokemonSecreto.mitico;
-
-
-aplicarFiltro(
-pokemon=>pokemon.mitico === respuesta
-);
-
-
-mostrarRespuesta(
-"¿Es mítico?",
-respuesta
-);
-
-
-}
-
-function aplicarFiltro(condicion){
-
-
-document
-.querySelectorAll(".pokemon-card")
-.forEach((carta,index)=>{
-
-
-let pokemon =
-partidaActual.pokemonTablero[index];
-
-
-if(!condicion(pokemon)){
-
-
-carta.classList.add(
-"eliminado"
-);
-
-actualizarRestantes();
-}
-
-
-});
-
-
-}
-
-function preguntaLibre(){
-
-
-let texto =
-document
-.getElementById("pregunta")
-.value
-.toLowerCase();
-
-
-
-partidaActual.preguntas++;
-
-
-
-let secreto =
-partidaActual.pokemonSecreto;
-
-
-
-let respuesta;
-
-
-
-let filtro;
-
-
-
-// COLOR
-
-if(texto.includes("rojo")){
-
-respuesta =
-secreto.color==="Rojo";
-
-filtro =
-p=>p.color==="Rojo";
-
-}
-
-
-else if(texto.includes("azul")){
-
-respuesta =
-secreto.color==="Azul";
-
-filtro =
-p=>p.color==="Azul";
-
-}
-
-
-else if(texto.includes("verde")){
-
-respuesta =
-secreto.color==="Verde";
-
-filtro =
-p=>p.color==="Verde";
-
-}
-
-
-
-// GENERACIÓN
-
-else if(texto.includes("generación") ||
-texto.includes("generacion")){
-
-
-let numero =
-texto.match(/\d+/);
-
-
-if(numero){
-
-respuesta =
-secreto.generacion ==
-Number(numero[0]);
-
-
-filtro =
-p=>p.generacion ==
-Number(numero[0]);
-
-}
-
-}
-
-
-
-// TIPOS
-
-else if(
-texto.includes("fuego") ||
-texto.includes("agua") ||
-texto.includes("planta") ||
-texto.includes("dragón") ||
-texto.includes("dragon") ||
-texto.includes("eléctrico") ||
-texto.includes("electrico")
-){
-
-
-let tipoDetectado;
-
-
-if(texto.includes("fuego"))
-tipoDetectado="Fuego";
-
-if(texto.includes("agua"))
-tipoDetectado="Agua";
-
-if(texto.includes("planta"))
-tipoDetectado="Planta";
-
-if(texto.includes("dragon"))
-tipoDetectado="Dragón";
-
-if(texto.includes("eléctrico") ||
-texto.includes("electrico"))
-tipoDetectado="Eléctrico";
-
-
-respuesta =
-secreto.tipo.includes(tipoDetectado);
-
-
-filtro =
-p=>p.tipo.includes(tipoDetectado);
-
-
-}
-
-
-
-// DOBLE TIPO
-
-else if(
-texto.includes("dos tipos") ||
-texto.includes("doble")
-){
-
-
-respuesta =
-secreto.tipo.length>1;
-
-
-filtro =
-p=>p.tipo.length>1;
-
-
-}
-
-
-
-// PSEUDO
-
-else if(
-texto.includes("pseudo")
-){
-
-
-respuesta =
-secreto.pseudo;
-
-
-filtro =
-p=>p.pseudo;
-
-
-}
-
-
-
-else{
-
-
-mostrarRespuesta(
-"❓ No entiendo esa pregunta"
-);
-
-
-return;
-
-
-}
-
-
-
-aplicarFiltro(filtro);
-
-
-
-mostrarRespuesta(
-
-respuesta ?
-
-"✅ Sí"
-
-:
-
-"❌ No"
-
-);
-
-
-}
-
-
-
-function limpiarFiltros(){
-
+    document.body.appendChild(pantalla);
 
     document
-    .querySelectorAll(".pokemon-card")
-    .forEach(carta=>{
+        .getElementById("jugarOtra")
+        .addEventListener("click", () => {
 
+            pantalla.remove();
+            nuevaPartida();
 
-        carta.classList.remove(
-            "eliminado"
-        );
+        });
 
+}
+const botonStats = document.getElementById("verEstadisticas");
 
-    });
+if (botonStats) {
 
+    botonStats.addEventListener("click", mostrarEstadisticas);
 
-    partidaActual.preguntas = 0;
+}
+// =========================================
+// CALCULAR PUNTUACIÓN
+// =========================================
 
+function calcularPuntuacion() {
 
-    let contador =
-    document.getElementById("preguntas");
+    let puntos = 10000;
 
+    puntos -= tiempo * 10;
 
-    if(contador){
+    puntos -= partidaActual.errores * 250;
 
-        contador.innerHTML = "0";
+    puntos -= partidaActual.preguntas * 100;
 
-    }
+    return Math.max(0, puntos);
 
+}
+// =========================================
+// MOSTRAR ESTADÍSTICAS
+// =========================================
 
-    let restantes =
-    document.getElementById("restantes");
+function mostrarEstadisticas() {
 
+    const stats = obtenerEstadisticas();
 
-    if(restantes){
+    const mejorTiempo =
+        stats.mejorTiempo === null
+            ? "--"
+            : stats.mejorTiempo + " s";
 
-        restantes.innerHTML =
-        partidaActual.pokemonTablero.length;
+    const porcentaje =
+        stats.partidas === 0
+            ? 0
+            : Math.round((stats.victorias / stats.partidas) * 100);
 
-    }
+    alert(
+        
+        `📊 ESTADÍSTICAS
 
-
-    mostrarRespuesta(
-        "🔄 Preguntas reiniciadas"
+🏆 Victorias: ${stats.victorias}
+🎮 Partidas: ${stats.partidas}
+📈 Porcentaje: ${porcentaje}%
+⏱ Mejor tiempo: ${mejorTiempo}
+⭐ Mejor puntuación: ${stats.mejorPuntuacion}
+❓ Preguntas: ${stats.preguntas}
+❌ Errores: ${stats.errores}`
     );
 
-
 }
-
-function mostrarRespuesta(texto){
-
-let caja =
-document.getElementById("respuesta");
-
-
-if(caja){
-
-caja.innerHTML=texto;
-
-}
-
-}
-
