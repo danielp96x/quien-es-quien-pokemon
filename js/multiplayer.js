@@ -26,7 +26,7 @@ let partidaMulti = {
 
 
 async function crearSala() {
-
+    
     const codigo = Math.random()
         .toString(36)
         .substring(2, 7)
@@ -49,34 +49,36 @@ async function crearSala() {
 
 
 
-// UNIRSE
+async function unirseSala() {
 
-function unirseSala() {
+    const codigo = prompt("Código de la sala:");
 
-    let sala =
-        JSON.parse(
-            localStorage.getItem("salaPokemon")
-        );
+    if (!codigo) return;
 
+    const salaRef = ref(database, "salas/" + codigo.toUpperCase());
 
-    if (!sala) {
+    const snapshot = await get(salaRef);
 
-        alert("No existe sala");
+    if (!snapshot.exists()) {
+        alert("Sala no encontrada");
         return;
-
     }
 
+    const datos = snapshot.val();
+
+    partidaMulti.sala = codigo.toUpperCase();
+    partidaMulti.jugador = 2;
+
+    await update(salaRef, {
+        jugador2: true
+    });
 
     partidaActual.pokemonTablero =
-        sala.tablero.map(id =>
+        datos.tablero.map(id =>
             pokedex.find(p => p.id === id)
         );
 
-
-    alert(
-        "Tablero recibido"
-    );
-
+    alert("✅ Unido a la sala");
 
 }
 
@@ -182,3 +184,6 @@ function iniciarDuelo() {
 
 
 }
+window.crearSala = crearSala;
+window.unirseSala = unirseSala;
+window.elegirPokemonMulti = elegirPokemonMulti;
