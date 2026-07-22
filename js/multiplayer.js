@@ -30,16 +30,23 @@ function crearSala(){
     .toUpperCase();
 
 
-    partidaMulti.sala=codigo;
+    let sala = {
 
-    partidaMulti.jugador=1;
+        codigo: codigo,
+
+        tablero: partidaActual.pokemonTablero.map(p=>p.id)
+
+    };
+
+
+    localStorage.setItem(
+        "salaPokemon",
+        JSON.stringify(sala)
+    );
 
 
     alert(
-        "🎮 Sala creada\nCódigo: "
-        + codigo
-        +
-        "\nEres jugador 1"
+        "Sala creada: " + codigo
     );
 
 
@@ -51,29 +58,30 @@ function crearSala(){
 
 function unirseSala(){
 
-    let codigo =
-    prompt(
-        "Código de sala:"
+    let sala =
+    JSON.parse(
+        localStorage.getItem("salaPokemon")
     );
 
 
-    if(!codigo)return;
+    if(!sala){
+
+        alert("No existe sala");
+        return;
+
+    }
 
 
-    partidaMulti.sala =
-    codigo.toUpperCase();
-
-
-    partidaMulti.jugador=2;
+    partidaActual.pokemonTablero =
+    sala.tablero.map(id=>
+        pokedex.find(p=>p.id===id)
+    );
 
 
     alert(
-        "🔑 Unido a sala "
-        +
-        codigo
-        +
-        "\nEres jugador 2"
+        "Tablero recibido"
     );
+
 
 }
 
