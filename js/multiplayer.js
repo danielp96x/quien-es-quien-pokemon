@@ -1,54 +1,49 @@
 console.log("🎮 Multiplayer cargado");
 
 
+import { database } from "./firebase.js";
+
+import {
+    ref,
+    set,
+    get,
+    child,
+    update,
+    onValue
+} from "https://www.gstatic.com/firebasejs/12.16.0/firebase-database.js";
+
+console.log("🎮 Multiplayer con Firebase cargado");
+
 let partidaMulti = {
-
-    sala:null,
-
-    jugador:null,
-
-    pokemonJugador1:null,
-
-    pokemonJugador2:null,
-
-    listo1:false,
-
-    listo2:false
-
+    sala: null,
+    jugador: null,
+    pokemonJugador1: null,
+    pokemonJugador2: null,
+    listo1: false,
+    listo2: false
 };
 
 
 
-// CREAR SALA
+async function crearSala() {
 
-function crearSala(){
+    const codigo = Math.random()
+        .toString(36)
+        .substring(2, 7)
+        .toUpperCase();
 
-    const codigo =
-    Math.random()
-    .toString(36)
-    .substring(2,7)
-    .toUpperCase();
+    partidaMulti.sala = codigo;
+    partidaMulti.jugador = 1;
 
+    await set(ref(database, "salas/" + codigo), {
 
-    let sala = {
+        jugador1: true,
+        jugador2: false,
+        tablero: partidaActual.pokemonTablero.map(p => p.id)
 
-        codigo: codigo,
+    });
 
-        tablero: partidaActual.pokemonTablero.map(p=>p.id)
-
-    };
-
-
-    localStorage.setItem(
-        "salaPokemon",
-        JSON.stringify(sala)
-    );
-
-
-    alert(
-        "Sala creada: " + codigo
-    );
-
+    alert("Sala creada: " + codigo);
 
 }
 
@@ -56,15 +51,15 @@ function crearSala(){
 
 // UNIRSE
 
-function unirseSala(){
+function unirseSala() {
 
     let sala =
-    JSON.parse(
-        localStorage.getItem("salaPokemon")
-    );
+        JSON.parse(
+            localStorage.getItem("salaPokemon")
+        );
 
 
-    if(!sala){
+    if (!sala) {
 
         alert("No existe sala");
         return;
@@ -73,9 +68,9 @@ function unirseSala(){
 
 
     partidaActual.pokemonTablero =
-    sala.tablero.map(id=>
-        pokedex.find(p=>p.id===id)
-    );
+        sala.tablero.map(id =>
+            pokedex.find(p => p.id === id)
+        );
 
 
     alert(
@@ -89,19 +84,19 @@ function unirseSala(){
 
 // ELEGIR POKEMON
 
-function elegirPokemonMulti(idPokemon){
+function elegirPokemonMulti(idPokemon) {
 
 
     const pokemon =
-    pokedex.find(
-        p=>p.id===idPokemon
-    );
+        pokedex.find(
+            p => p.id === idPokemon
+        );
 
 
-    if(!pokemon){
+    if (!pokemon) {
 
         console.log(
-        "Pokémon no encontrado"
+            "Pokémon no encontrado"
         );
 
         return;
@@ -110,23 +105,23 @@ function elegirPokemonMulti(idPokemon){
 
 
 
-    if(partidaMulti.jugador===1){
+    if (partidaMulti.jugador === 1) {
 
-        partidaMulti.pokemonJugador1=
-        pokemon;
+        partidaMulti.pokemonJugador1 =
+            pokemon;
 
-        partidaMulti.listo1=true;
+        partidaMulti.listo1 = true;
 
 
     }
 
 
-    if(partidaMulti.jugador===2){
+    if (partidaMulti.jugador === 2) {
 
-        partidaMulti.pokemonJugador2=
-        pokemon;
+        partidaMulti.pokemonJugador2 =
+            pokemon;
 
-        partidaMulti.listo2=true;
+        partidaMulti.listo2 = true;
 
     }
 
@@ -147,13 +142,13 @@ function elegirPokemonMulti(idPokemon){
 
 
 
-function comprobarListos(){
+function comprobarListos() {
 
 
-    if(
-    partidaMulti.listo1 &&
-    partidaMulti.listo2
-    ){
+    if (
+        partidaMulti.listo1 &&
+        partidaMulti.listo2
+    ) {
 
         iniciarDuelo();
 
@@ -165,25 +160,25 @@ function comprobarListos(){
 
 
 
-function iniciarDuelo(){
+function iniciarDuelo() {
 
 
-alert(
-"🔥 ¡Comienza el duelo!\n\n"+
-"Cada jugador debe descubrir el Pokémon rival"
-);
+    alert(
+        "🔥 ¡Comienza el duelo!\n\n" +
+        "Cada jugador debe descubrir el Pokémon rival"
+    );
 
 
-console.log(
-"Jugador 1:",
-partidaMulti.pokemonJugador1
-);
+    console.log(
+        "Jugador 1:",
+        partidaMulti.pokemonJugador1
+    );
 
 
-console.log(
-"Jugador 2:",
-partidaMulti.pokemonJugador2
-);
+    console.log(
+        "Jugador 2:",
+        partidaMulti.pokemonJugador2
+    );
 
 
 }
