@@ -5,10 +5,7 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>¿Quién es ese Pokémon?</title>
 
@@ -140,54 +137,37 @@
 
         </button>
         <button id="verEstadisticas">
-    📊 Estadísticas
-    
-</button>
+            📊 Estadísticas
 
-<button onclick="crearSala()">
-    partidaMulti.sala={
+        </button>
 
-    codigo:codigo,
+        <button id="crearSala">
+            🎮 Crear partida
+        </button>
 
-    tablero:partidaActual.pokemonTablero,
+        <button onclick="unirseSala()">
+            🔑 Unirse
+        </button>
 
-    jugador1:null,
+        <div id="seleccionMulti">
 
-    jugador2:null
-
-};
-🎮 Crear partida
-
-</button>
-
-<button onclick="unirseSala()">
-🔑 Unirse
-</button>
-
-<div id="seleccionMulti">
-
-<h2>
-🎮 Elige tu Pokémon
-</h2>
+            <h2>
+                🎮 Elige tu Pokémon
+            </h2>
 
 
-<input 
-id="buscarPokemonMulti"
-placeholder="Buscar Pokémon">
+            <input id="buscarPokemonMulti" placeholder="Buscar Pokémon">
 
 
-<div id="listaPokemonMulti"></div>
+            <div id="listaPokemonMulti"></div>
 
 
-</div>
+        </div>
         <!-- ============================== -->
         <!-- TABLERO -->
         <!-- ============================== -->
 
-        <section
-            id="tablero"
-            aria-label="Tablero de Pokémon"
-        >
+        <section id="tablero" aria-label="Tablero de Pokémon">
 
             <!-- Se genera automáticamente -->
 
@@ -197,10 +177,7 @@ placeholder="Buscar Pokémon">
         <!-- PREGUNTAS -->
         <!-- ============================== -->
 
-        <section
-            id="panelPreguntas"
-            class="panel-preguntas"
-        >
+        <section id="panelPreguntas" class="panel-preguntas">
 
             <!-- JavaScript generará los botones -->
 
@@ -221,7 +198,7 @@ placeholder="Buscar Pokémon">
     <!-- ========================================= -->
     <!-- BASE DE DATOS -->
     <!-- ========================================= -->
-<script src="js/storage.js"></script>
+    <script src="js/storage.js"></script>
 
     <script src="data/color.js"></script>
 
@@ -266,7 +243,7 @@ placeholder="Buscar Pokémon">
     <script src="js/game.js"></script>
 
 
-</script>
+    </script>
 
     <script type="module" src="js/multiplayer.js"></script>
 
@@ -283,5 +260,6 @@ placeholder="Buscar Pokémon">
 </body>
 
 </div>
+
 </html>
 window.crearSala = crearSala;

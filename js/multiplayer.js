@@ -42,3 +42,16 @@ async function crearSala() {
     alert("Sala creada: " + codigo);
 
 }
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.querySelectorAll("button").forEach(b => {
+        console.log(b.textContent);
+    });
+
+    const botonCrearSala = document.getElementById("crearSala");
+
+    if (botonCrearSala) {
+        botonCrearSala.addEventListener("click", crearSala);
+    }
+
+});
