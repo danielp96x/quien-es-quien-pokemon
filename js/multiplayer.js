@@ -23,35 +23,27 @@ function generarCodigo() {
         .substring(2, 7)
         .toUpperCase();
 }
-async function crearSala() {
+async function unirseSala() {
 
-    const codigo = generarCodigo();
+    const codigo = prompt("Código de la sala:");
 
-    partidaMulti.codigo = codigo;
-    partidaMulti.jugador = 1;
+    if (!codigo) return;
 
-    await set(
-        ref(database, "salas/" + codigo),
-        {
-            jugador1: true,
-            jugador2: false,
-            tablero: partidaActual.pokemonTablero.map(p => p.id)
-        }
-    );
+    const salaRef = ref(database, "salas/" + codigo.toUpperCase());
 
-    alert("Sala creada: " + codigo);
+    const snapshot = await get(salaRef);
 
-}
-document.addEventListener("DOMContentLoaded", () => {
-
-    document.querySelectorAll("button").forEach(b => {
-        console.log(b.textContent);
-    });
-
-    const botonCrearSala = document.getElementById("crearSala");
-
-    if (botonCrearSala) {
-        botonCrearSala.addEventListener("click", crearSala);
+    if (!snapshot.exists()) {
+        alert("Sala no encontrada");
+        return;
     }
 
-});
+    partidaMulti.codigo = codigo.toUpperCase();
+    partidaMulti.jugador = 2;
+
+    await update(salaRef, {
+        jugador2: true
+    });
+
+    alert("✅ Unido a la sala");
+}
