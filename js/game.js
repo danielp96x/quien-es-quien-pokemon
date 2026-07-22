@@ -243,14 +243,24 @@ function crearCartaPokemon(pokemon){
 
 
 
-    carta.onclick = ()=>{
+   carta.onclick = () => {
+
+    if (!window.codigoSala || !window.codigoSala()) {
 
         comprobarPokemon(
             pokemon,
             carta
         );
 
-    };
+        return;
+
+    }
+
+    elegirPokemon(
+        pokemon.id
+    );
+
+};
 
 
     return carta;
@@ -270,6 +280,7 @@ function comprobarPokemon(
     pokemon,
     carta
 ){
+
 
 
     if(
