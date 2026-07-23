@@ -26,7 +26,11 @@ io.on("connection", (socket) => {
 // ==========================
 
 socket.on("elegirPokemon", (pokemon) => {
-
+console.log(
+    "📥 RECIBIDO:",
+    socket.id,
+    pokemon.nombre
+);
     const sala = socket.data.sala;
 
     if (!sala) return;
@@ -36,6 +40,10 @@ socket.on("elegirPokemon", (pokemon) => {
     }
 
     salas[sala].elecciones[socket.id] = pokemon;
+    console.log(
+    "ELECCIONES:",
+    salas[sala].elecciones
+);
 
     console.log(
         "🎯 Pokémon elegido:",
@@ -159,6 +167,10 @@ socket.on("elegirPokemon", (pokemon) => {
    socket.on("enviarTablero", (datos) => {
 
     const sala = socket.data.sala;
+    console.log(
+    "SALA DEL JUGADOR:",
+    sala
+);
 
     if (!sala) return;
 

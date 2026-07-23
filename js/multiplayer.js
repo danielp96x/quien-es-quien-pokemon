@@ -169,6 +169,12 @@ socket.on(
 "pokemonRival",
 (pokemon)=>{
 
+    console.log(
+        "🔥 RECIBÍ RIVAL:",
+        pokemon
+    );
+
+});
 
     console.log(
         "👀 Pokémon rival:",
