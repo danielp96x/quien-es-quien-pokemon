@@ -2,7 +2,10 @@
 // ESTADÍSTICAS DEL JUEGO
 // =========================================
 
-const CLAVE_ESTADISTICAS = "pokemon_estadisticas";
+const CLAVE_ESTADISTICAS = "pokemonStats";
+
+console.log("STORAGE NUEVO CARGADO");
+// Obtener estadísticas
 
 function obtenerEstadisticas() {
 
@@ -13,141 +16,106 @@ function obtenerEstadisticas() {
     }
 
     return {
+
         partidas: 0,
         victorias: 0,
         preguntas: 0,
         errores: 0,
         mejorTiempo: null,
         mejorPuntuacion: 0
+
     };
+
 }
 
+
+// Guardar estadísticas
+
 function guardarEstadisticas(stats) {
+
     localStorage.setItem(
         CLAVE_ESTADISTICAS,
         JSON.stringify(stats)
     );
+
 }
+
+
+// Registrar partida
+
+function registrarPartida() {
+
+    const stats = obtenerEstadisticas();
+
+    stats.partidas++;
+
+    guardarEstadisticas(stats);
+
+}
+
+
+// Registrar victoria
 
 function registrarVictoria() {
 
     const stats = obtenerEstadisticas();
 
-    stats.partidas++;
+
     stats.victorias++;
+
     stats.preguntas += partidaActual.preguntas;
+
     stats.errores += partidaActual.errores;
+
 
     if (
         stats.mejorTiempo === null ||
         tiempo < stats.mejorTiempo
     ) {
+
         stats.mejorTiempo = tiempo;
+
     }
+
 
     const puntuacion = calcularPuntuacion();
 
-    if (puntuacion > stats.mejorPuntuacion) {
+    if (
+        puntuacion > stats.mejorPuntuacion
+    ) {
+
         stats.mejorPuntuacion = puntuacion;
+
     }
+
 
     guardarEstadisticas(stats);
 
 }
+
+
 // =========================================
-// SISTEMA DE ESTADÍSTICAS
+// CALCULAR PUNTUACIÓN
 // =========================================
 
+function calcularPuntuacion() {
 
-function obtenerEstadisticas(){
+    let puntos = 1000;
 
-    let datos =
-        localStorage.getItem(
-            "pokemonStats"
-        );
+    puntos -= partidaActual.preguntas * 10;
+
+    puntos -= partidaActual.errores * 25;
+
+    puntos -= tiempo * 2;
 
 
-    if(!datos){
+    if (puntos < 0) {
 
-        datos = {
-
-            partidas:0,
-            victorias:0,
-            mejorTiempo:null,
-            mejorPuntuacion:0,
-            preguntas:0,
-            errores:0
-
-        };
-
-        localStorage.setItem(
-            "pokemonStats",
-            JSON.stringify(datos)
-        );
-
-    }
-    else{
-
-        datos = JSON.parse(datos);
+        puntos = 0;
 
     }
 
 
-    return datos;
-
-}
-
-
-
-// =========================================
-// REGISTRAR PARTIDA
-// =========================================
-
-function registrarPartida(){
-
-
-    const stats =
-        obtenerEstadisticas();
-
-
-    stats.partidas++;
-
-
-    localStorage.setItem(
-        "pokemonStats",
-        JSON.stringify(stats)
-    );
-
-}
-
-
-
-// =========================================
-// REGISTRAR VICTORIA
-// =========================================
-
-function registrarVictoria(){
-
-
-    const stats =
-        obtenerEstadisticas();
-
-
-    stats.victorias++;
-
-
-    stats.preguntas +=
-        partidaActual.preguntas;
-
-
-    stats.errores +=
-        partidaActual.errores;
-
-
-
-    localStorage.setItem(
-        "pokemonStats",
-        JSON.stringify(stats)
-    );
+    return puntos;
 
 }

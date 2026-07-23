@@ -31,13 +31,13 @@ let partidaActual = {
 // =========================================
 
 
-function nuevaPartida(){
+function nuevaPartida() {
 
 
-    if(
+    if (
         typeof pokedexCompleta === "undefined" ||
         pokedexCompleta.length === 0
-    ){
+    ) {
 
         alert("Pokédex no cargada");
         return;
@@ -48,8 +48,9 @@ function nuevaPartida(){
 
     partidaActual.preguntas = 0;
     partidaActual.errores = 0;
-preguntasUsadas = [];
-    
+    preguntasUsadas = [];
+    iniciarTiempo();
+
     registrarPartida();
 
 
@@ -73,26 +74,26 @@ preguntasUsadas = [];
     // ==============================
 
 
-    if(modo.startsWith("gen")){
+    if (modo.startsWith("gen")) {
 
 
         const gen =
             Number(
-                modo.replace("gen","")
+                modo.replace("gen", "")
             );
 
 
         pokemonDisponibles =
             pokemonDisponibles.filter(
                 p =>
-                p.generacion === gen
+                    p.generacion === gen
             );
 
     }
 
 
 
-    if(pokemonDisponibles.length === 0){
+    if (pokemonDisponibles.length === 0) {
 
         alert("No hay Pokémon");
         return;
@@ -109,7 +110,7 @@ preguntasUsadas = [];
 
     pokemonDisponibles =
         pokemonDisponibles.sort(
-            ()=>Math.random()-0.5
+            () => Math.random() - 0.5
         );
 
 
@@ -127,16 +128,16 @@ preguntasUsadas = [];
 
     partidaActual.pokemonSecreto =
         partidaActual.pokemonTablero[
-            Math.floor(
-                Math.random() *
-                partidaActual.pokemonTablero.length
-            )
+        Math.floor(
+            Math.random() *
+            partidaActual.pokemonTablero.length
+        )
         ];
 
 
 
 
-    console.log("Modo:",modo);
+    console.log("Modo:", modo);
     console.log(
         "Pokémon encontrados:",
         pokemonDisponibles.length
@@ -173,23 +174,23 @@ preguntasUsadas = [];
 // =========================================
 
 
-function mostrarTablero(){
+function mostrarTablero() {
 
 
     const tablero =
         document.getElementById("tablero");
 
 
-    if(!tablero)return;
+    if (!tablero) return;
 
 
 
-    tablero.innerHTML="";
+    tablero.innerHTML = "";
 
 
 
     partidaActual.pokemonTablero.forEach(
-        pokemon=>{
+        pokemon => {
 
 
             tablero.appendChild(
@@ -211,7 +212,7 @@ function mostrarTablero(){
 // =========================================
 
 
-function crearCartaPokemon(pokemon){
+function crearCartaPokemon(pokemon) {
 
 
     const carta =
@@ -243,14 +244,14 @@ function crearCartaPokemon(pokemon){
 
 
 
-  carta.onclick = () => {
+    carta.onclick = () => {
 
-    comprobarPokemon(
-        pokemon,
-        carta
-    );
+        comprobarPokemon(
+            pokemon,
+            carta
+        );
 
-};
+    };
 
     return carta;
 }
@@ -260,15 +261,15 @@ function crearCartaPokemon(pokemon){
 // =========================================
 
 
-function comprobarPokemon(pokemon, carta){
+function comprobarPokemon(pokemon, carta) {
 
     // Evita volver a pulsar una carta eliminada
-    if(carta.classList.contains("eliminado")){
+    if (carta.classList.contains("eliminado")) {
         return;
     }
 
-    if(pokemon.id === partidaActual.pokemonSecreto.id){
-
+    if (pokemon.id === partidaActual.pokemonSecreto.id) {
+        detenerTiempo();
         registrarVictoria();
 
         alert(
@@ -284,17 +285,17 @@ function comprobarPokemon(pokemon, carta){
     partidaActual.errores++;
 
     actualizarContadores();
-if(partidaActual.errores >= MAX_INTENTOS){
+    if (partidaActual.errores >= MAX_INTENTOS) {
+        detenerTiempo();
+        alert(
+            "💀 Has perdido.\n\nEl Pokémon secreto era " +
+            partidaActual.pokemonSecreto.nombre
+        );
 
-    alert(
-        "💀 Has perdido.\n\nEl Pokémon secreto era " +
-        partidaActual.pokemonSecreto.nombre
-    );
+        nuevaPartida();
 
-    nuevaPartida();
-
-    return;
-}
+        return;
+    }
     alert(
         "❌ Ese no es el Pokémon secreto.\n\n¡Sigue haciendo preguntas antes de arriesgarte!"
     );
@@ -308,7 +309,7 @@ if(partidaActual.errores >= MAX_INTENTOS){
 // =========================================
 
 
-function actualizarContadores(){
+function actualizarContadores() {
 
 
     const restantes =
@@ -317,14 +318,14 @@ function actualizarContadores(){
         );
 
 
-    if(restantes){
+    if (restantes) {
 
         restantes.textContent =
-        document.querySelectorAll(
-            ".pokemon-card:not(.eliminado)"
-        ).length
-        ||
-        partidaActual.pokemonTablero.length;
+            document.querySelectorAll(
+                ".pokemon-card:not(.eliminado)"
+            ).length
+            ||
+            partidaActual.pokemonTablero.length;
 
     }
 
@@ -339,13 +340,13 @@ function actualizarContadores(){
 // =========================================
 
 
-function crearPanelFiltros(){
+function crearPanelFiltros() {
 
     const panel =
         document.getElementById("panelPreguntas");
 
 
-    if(!panel) return;
+    if (!panel) return;
 
 
     panel.innerHTML = `
@@ -625,7 +626,7 @@ function crearPanelFiltros(){
 // ACTUALIZAR CONTADOR RESTANTES
 // =========================================
 
-function actualizarContadorRestantes(){
+function actualizarContadorRestantes() {
 
 
     const cartas =
@@ -640,7 +641,7 @@ function actualizarContadorRestantes(){
         );
 
 
-    if(contador){
+    if (contador) {
 
         contador.textContent =
             cartas.length;
@@ -657,7 +658,7 @@ const botonStats =
     document.getElementById("verEstadisticas");
 
 
-if(botonStats){
+if (botonStats) {
 
     botonStats.addEventListener(
         "click",
@@ -672,15 +673,15 @@ if(botonStats){
 // MOSTRAR ESTADÍSTICAS
 // =========================================
 
-function mostrarEstadisticas(){
+function mostrarEstadisticas() {
 
 
-    if(
+    if (
         typeof obtenerEstadisticas !== "function"
-    ){
+    ) {
 
         alert(
-        "⚠️ Sistema de estadísticas no cargado"
+            "⚠️ Sistema de estadísticas no cargado"
         );
 
         return;
@@ -696,13 +697,13 @@ function mostrarEstadisticas(){
 
     const porcentaje =
         stats.partidas === 0
-        ? 0
-        :
-        Math.round(
-            (stats.victorias /
-            stats.partidas)
-            *100
-        );
+            ? 0
+            :
+            Math.round(
+                (stats.victorias /
+                    stats.partidas)
+                * 100
+            );
 
 
 
@@ -731,5 +732,5 @@ ${stats.preguntas}
 ❌ Errores:
 ${stats.errores}
 
-    `); 
+    `);
 }
