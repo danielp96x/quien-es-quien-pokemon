@@ -260,39 +260,44 @@ function crearCartaPokemon(pokemon){
 // =========================================
 
 
-function comprobarPokemon(
-    pokemon,
-    carta
-){  
+function comprobarPokemon(pokemon, carta){
 
+    // Evita volver a pulsar una carta eliminada
+    if(carta.classList.contains("eliminado")){
+        return;
+    }
 
-    if(
-        pokemon.id ===
-        partidaActual.pokemonSecreto.id
-    ){
+    if(pokemon.id === partidaActual.pokemonSecreto.id){
+
         registrarVictoria();
 
         alert(
-            "🎉 Correcto: "
-            +pokemon.nombre
+            "🎉 ¡Correcto!\n\nEra " + pokemon.nombre + "."
         );
 
         return;
-
     }
 
-
-
-    carta.classList.add(
-        "eliminado"
-    );
-
+    // Carta incorrecta
+    carta.classList.add("eliminado");
 
     partidaActual.errores++;
 
-
     actualizarContadores();
+if(partidaActual.errores >= MAX_INTENTOS){
 
+    alert(
+        "💀 Has perdido.\n\nEl Pokémon secreto era " +
+        partidaActual.pokemonSecreto.nombre
+    );
+
+    nuevaPartida();
+
+    return;
+}
+    alert(
+        "❌ Ese no es el Pokémon secreto.\n\n¡Sigue haciendo preguntas antes de arriesgarte!"
+    );
 
 }
 
