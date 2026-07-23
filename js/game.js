@@ -243,33 +243,17 @@ function crearCartaPokemon(pokemon){
 
 
 
-   carta.onclick = () => {
+  carta.onclick = () => {
 
-    if (!window.codigoSala || !window.codigoSala()) {
-
-        comprobarPokemon(
-            pokemon,
-            carta
-        );
-
-        return;
-
-    }
-
-    elegirPokemon(
-        pokemon.id
+    comprobarPokemon(
+        pokemon,
+        carta
     );
 
 };
 
-
     return carta;
-
 }
-
-
-
-
 
 // =========================================
 // COMPROBAR RESPUESTA
@@ -279,8 +263,7 @@ function crearCartaPokemon(pokemon){
 function comprobarPokemon(
     pokemon,
     carta
-){
-
+){  
 
 
     if(
@@ -312,9 +295,6 @@ function comprobarPokemon(
 
 
 }
-
-
-
 
 
 
@@ -746,6 +726,5 @@ ${stats.preguntas}
 ❌ Errores:
 ${stats.errores}
 
-`);
-
+    `); 
 }
