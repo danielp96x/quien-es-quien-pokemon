@@ -1,22 +1,18 @@
 // =========================================
 // ¿QUIÉN ES ESE POKÉMON?
-// FILTROS V3.1
+// FILTROS V4 LIMPIO
 // =========================================
 
 
 // =========================================
-// SUMAR PREGUNTA
+// AUMENTAR PREGUNTA
 // =========================================
 
-function aumentarPregunta(){
+function aumentarPregunta() {
 
+    if (partidaActual.preguntas >= MAX_PREGUNTAS) {
 
-    if(partidaActual.preguntas >= MAX_PREGUNTAS){
-
-        alert(
-            "❓ Llegaste al límite de preguntas"
-        );
-
+        alert("❓ Llegaste al límite de preguntas");
         return false;
 
     }
@@ -26,7 +22,6 @@ function aumentarPregunta(){
 
     actualizarContadorPreguntas();
 
-
     return true;
 
 }
@@ -34,76 +29,30 @@ function aumentarPregunta(){
 
 
 // =========================================
-// FILTRAR TIPO
+// FILTRO TIPO
 // =========================================
 
 function filtrarTipo(tipo) {
 
-
-    if(partidaActual.preguntas >= MAX_PREGUNTAS){
-
-        alert("❌ No puedes hacer más preguntas");
-
+    if (!aumentarPregunta())
         return;
 
-    }
+
+    const secreto =
+        partidaActual.pokemonSecreto.tipos.includes(tipo);
 
 
-    aumentarPregunta();
 
-
-    const respuesta =
-        partidaActual.pokemonSecreto
-        .tipos?.includes(tipo) || false;
-
-
-    aplicarFiltro(
+    eliminarSegunCondicion(
 
         pokemon =>
-            pokemon.tipos?.includes(tipo) === respuesta
+            pokemon.tipos.includes(tipo) === secreto
 
     );
 
 
     mostrarRespuesta(
-
-        `¿Es tipo ${tipo}? ${respuesta ? "✅ Sí" : "❌ No"}`
-
-    );
-
-}
-   
-// =========================================
-// FILTRAR CATEGORÍA
-// =========================================
-
-function filtrarCategoria(propiedad,nombre){
-
-
-    if(!aumentarPregunta())
-        return;
-
-
-
-    const respuesta =
-        partidaActual.pokemonSecreto[propiedad];
-
-
-
-    aplicarFiltro(
-
-        pokemon =>
-            pokemon[propiedad] === respuesta
-
-    );
-
-
-
-    mostrarRespuesta(
-
-        `¿Es ${nombre}?
-        ${respuesta ? "✅ Sí" : "❌ No"}`
-
+        `¿Es tipo ${tipo}? ${secreto ? "✅ Sí" : "❌ No"}`
     );
 
 }
@@ -111,62 +60,124 @@ function filtrarCategoria(propiedad,nombre){
 
 
 // =========================================
-// FILTRAR GENERACIÓN
+// FILTRO CARACTERÍSTICAS
 // =========================================
 
-function filtrarGeneracion(generacion){
+function preguntarCaracteristica(propiedad, nombre) {
 
+    console.log("FILTRO NUEVO CARGADO", propiedad);
 
-    if(!aumentarPregunta())
+    if (!aumentarPregunta())
         return;
 
 
 
-    const respuesta =
+    const secreto =
+        Boolean(
+            partidaActual.pokemonSecreto[propiedad]
+        );
+
+    console.log("SECRETO:", partidaActual.pokemonSecreto.nombre);
+    console.log("PROPIEDAD:", propiedad);
+    console.log("VALOR SECRETO:", secreto);
+
+    console.log(
+        "TABLERO:",
+        partidaActual.pokemonTablero.length
+    );
+
+
+    console.log(
+        "Característica:",
+        propiedad,
+        secreto
+    );
+
+
+
+    eliminarSegunCondicion(
+
+        pokemon =>
+            Boolean(
+                pokemon[propiedad]
+            ) === secreto
+
+    );
+
+
+
+    mostrarRespuesta(
+        `¿Es ${nombre}? ${secreto ? "✅ Sí" : "❌ No"}`
+    );
+
+
+}
+
+
+
+// =========================================
+// FILTRO GENERACIÓN
+// =========================================
+
+function filtrarGeneracion(generacion) {
+
+
+    if (!aumentarPregunta())
+        return;
+
+
+    console.log("GENERACION PREGUNTADA:", generacion);
+
+    console.log(
+        "POKEMON SECRETO:",
+        partidaActual.pokemonSecreto.nombre,
+        "GEN:",
         partidaActual.pokemonSecreto.generacion
-        === generacion;
+    );
 
 
+    eliminarSegunCondicion(
 
-    aplicarFiltro(
+        pokemon => {
 
-        pokemon =>
-            pokemon.generacion === generacion
+            console.log(
+                pokemon.nombre,
+                "GEN:",
+                pokemon.generacion
+            );
+
+            return pokemon.generacion !== generacion;
+
+        }
 
     );
 
 
-
     mostrarRespuesta(
-
-        `¿Es generación ${generacion}?
-        ${respuesta ? "✅ Sí" : "❌ No"}`
-
+        `¿Es generación ${generacion}?`
     );
 
 }
 
 
-
 // =========================================
-// FILTRAR COLOR
+// FILTRO COLOR
 // =========================================
 
-function filtrarColor(color){
+function filtrarColor(color) {
 
 
-    if(!aumentarPregunta())
+    if (!aumentarPregunta())
         return;
 
 
 
-    const respuesta =
-        partidaActual.pokemonSecreto.color
-        === color;
+    const secreto =
+        partidaActual.pokemonSecreto.color === color;
 
 
 
-    aplicarFiltro(
+    eliminarSegunCondicion(
 
         pokemon =>
             pokemon.color === color
@@ -176,60 +187,87 @@ function filtrarColor(color){
 
 
     mostrarRespuesta(
-
-        `¿Es color ${color}?
-        ${respuesta ? "✅ Sí" : "❌ No"}`
-
+        `¿Es color ${color}? ${secreto ? "✅ Sí" : "❌ No"}`
     );
+
 
 }
 
 
 
+
 // =========================================
-// APLICAR FILTRO AL TABLERO
+// MOTOR CENTRAL
 // =========================================
 
-function aplicarFiltro(condicion){
+function eliminarSegunCondicion(condicion) {
 
 
-    document
-    .querySelectorAll(".pokemon-card")
-    .forEach((carta,indice)=>{
+    const cartas =
+        document.querySelectorAll(
+            ".pokemon-card"
+        );
 
 
-        const pokemon =
-            partidaActual.pokemonTablero[indice];
+
+    cartas.forEach(
+
+        (carta, index) => {
 
 
-        if(
-            pokemon &&
-            !condicion(pokemon)
-        ){
+            const id =
+                Number(carta.dataset.id);
 
-            carta.classList.add(
-                "eliminado"
+
+            const pokemon =
+                partidaActual.pokemonTablero.find(
+                    p => p.id === id
+                );
+
+
+            if (!pokemon)
+                return;
+
+
+
+            const mantener =
+                condicion(pokemon);
+
+
+
+            console.log(
+                pokemon.nombre,
+                mantener
             );
+
+
+
+            if (!mantener) {
+
+                carta.classList.add(
+                    "eliminado"
+                );
+
+            }
+
 
         }
 
-
-    });
-
+    );
 
 
     actualizarContadorRestantes();
 
-
 }
 
 
 
+
 // =========================================
-// CONTADOR DE PREGUNTAS
+// CONTADOR PREGUNTAS
 // =========================================
 
-function actualizarContadorPreguntas(){
+function actualizarContadorPreguntas() {
 
 
     const contador =
@@ -238,35 +276,10 @@ function actualizarContadorPreguntas(){
         );
 
 
-    if(!contador)
-        return;
-
-
-    contador.textContent =
-        partidaActual.preguntas;
-
-}
-function aumentarPregunta(){
-
-    partidaActual.preguntas++;
-
-    const contador =
-        document.getElementById("preguntas");
-
-
-    if(contador){
+    if (contador) {
 
         contador.textContent =
             partidaActual.preguntas;
-
-    }
-
-
-    if(partidaActual.preguntas >= MAX_PREGUNTAS){
-
-        alert(
-        "❌ Llegaste al límite de preguntas"
-        );
 
     }
 

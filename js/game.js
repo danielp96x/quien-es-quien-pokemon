@@ -20,7 +20,8 @@ let partidaActual = {
     pokemonTablero: [],
     pokemonSecreto: null,
     preguntas: 0,
-    errores: 0
+    errores: 0,
+    terminada: false
 
 };
 
@@ -43,14 +44,6 @@ function nuevaPartida() {
         return;
 
     }
-
-
-
-    partidaActual.preguntas = 0;
-    partidaActual.errores = 0;
-    preguntasUsadas = [];
-    iniciarTiempo();
-
     registrarPartida();
 
 
@@ -92,22 +85,126 @@ function nuevaPartida() {
     }
 
 
+    // ==============================
+    // FILTRO CARACTERÍSTICAS
+    // ==============================
 
-    if (pokemonDisponibles.length === 0) {
+    if (modo === "legendarios") {
 
-        alert("No hay Pokémon");
-        return;
+        pokemonDisponibles =
+            pokemonDisponibles.filter(
+                p => p.legendario === true
+            );
 
     }
 
 
+    if (modo === "miticos") {
+
+        pokemonDisponibles =
+            pokemonDisponibles.filter(
+                p => p.mitico === true
+            );
+
+    }
 
 
+    if (modo === "pseudo") {
+
+        pokemonDisponibles =
+            pokemonDisponibles.filter(
+                p => p.pseudo === true
+            );
+
+    }
+
+    // ==============================
+    // FILTRO INICIALES
+    // ==============================
+
+    if (modo === "iniciales") {
+
+        pokemonDisponibles =
+            pokemonDisponibles.filter(
+                p => p.inicial === true
+            );
+
+    }
+
+   
+    // ==============================
+// FILTRO ULTRAENTES
+// ==============================
+
+if (modo === "ultraentes") {
+
+    pokemonDisponibles =
+        pokemonDisponibles.filter(
+            p => p.ultraente === true
+        );
+
+}
+
+
+// ==============================
+// FILTRO PARADOJAS
+// ==============================
+
+if (modo === "paradojas") {
+
+    pokemonDisponibles =
+        pokemonDisponibles.filter(
+            p => p.paradoja === true
+        );
+
+}
+
+
+// ==============================
+// FILTRO EEVEE
+// ==============================
+
+if (modo === "eevee") {
+
+    pokemonDisponibles =
+        pokemonDisponibles.filter(
+            p => p.eevee === true
+        );
+
+}
+
+
+// ==============================
+// VALIDAR RESULTADO FINAL
+// ==============================
+
+// ==============================
+// VALIDAR RESULTADO FINAL
+// ==============================
+
+console.log("MODO:", modo);
+console.log("POKEMON DESPUÉS DE FILTROS:", pokemonDisponibles.length);
+console.log(
+    pokemonDisponibles.slice(0,10)
+);
+
+
+if (pokemonDisponibles.length === 0) {
+
+    alert("No hay Pokémon con ese filtro");
+    return;
+
+}
     // ==============================
     // CREAR TABLERO
     // ==============================
 
-
+console.log(
+    "ULTRAENTES DISPONIBLES:",
+    pokemonDisponibles.filter(
+        p => p.ultraente === true
+    )
+);
     pokemonDisponibles =
         pokemonDisponibles.sort(
             () => Math.random() - 0.5
@@ -165,7 +262,6 @@ function nuevaPartida() {
 
 
 }
-
 
 
 
@@ -262,13 +358,17 @@ function crearCartaPokemon(pokemon) {
 
 
 function comprobarPokemon(pokemon, carta) {
-
+    if (partidaActual.terminada) {
+        console.log("PARTIDA YA TERMINADA");
+        return;
+    }
     // Evita volver a pulsar una carta eliminada
     if (carta.classList.contains("eliminado")) {
         return;
     }
 
     if (pokemon.id === partidaActual.pokemonSecreto.id) {
+        partidaActual.terminada = true;
         detenerTiempo();
         registrarVictoria();
 
@@ -278,6 +378,7 @@ function comprobarPokemon(pokemon, carta) {
 
         return;
     }
+
 
     // Carta incorrecta
     carta.classList.add("eliminado");
@@ -346,12 +447,19 @@ function crearPanelFiltros() {
         document.getElementById("panelPreguntas");
 
 
-    if (!panel) return;
+    const tiposDisponibles = new Set();
+
+    partidaActual.pokemonTablero.forEach(pokemon => {
+
+        pokemon.tipos.forEach(tipo => {
+            tiposDisponibles.add(tipo);
+        });
+
+    });
 
 
     panel.innerHTML = `
-
-
+ 
     <h2>🔎 Preguntas</h2>
 
 
@@ -362,27 +470,35 @@ function crearPanelFiltros() {
 
         <div class="grupo-filtros">
 
+${tiposDisponibles.has("Normal") ? `
+<button onclick="filtrarTipo('Normal')">
+Normal
+</button>
+` : ""}
 
-            <button onclick="filtrarTipo('Normal')">
-            Normal
-            </button>
+${tiposDisponibles.has("Fuego") ? `
+<button onclick="filtrarTipo('Fuego')">
+🔥 Fuego
+</button>
+` : ""}
 
-            <button onclick="filtrarTipo('Fuego')">
-            🔥 Fuego
-            </button>
+${tiposDisponibles.has("Agua") ? `
+<button onclick="filtrarTipo('Agua')">
+💧 Agua
+</button>
+` : ""}
 
-            <button onclick="filtrarTipo('Agua')">
-            💧 Agua
-            </button>
+${tiposDisponibles.has("Planta") ? `
+<button onclick="filtrarTipo('Planta')">
+🌱 Planta
+</button>
+` : ""}
 
-            <button onclick="filtrarTipo('Planta')">
-            🌱 Planta
-            </button>
-
-            <button onclick="filtrarTipo('Eléctrico')">
-            ⚡ Eléctrico
-            </button>
-
+${tiposDisponibles.has("Eléctrico") ? `
+<button onclick="filtrarTipo('Eléctrico')">
+⚡ Eléctrico
+</button>
+` : ""}
             <button onclick="filtrarTipo('Hielo')">
             ❄️ Hielo
             </button>
@@ -442,59 +558,39 @@ function crearPanelFiltros() {
 
 
 
+<button onclick="preguntarCaracteristica('legendario','Legendario')">
+🏆 Legendario
+</button>
 
 
-    <details>
-
-        <summary>🏆 Características</summary>
-
-
-        <div class="grupo-filtros">
+<button onclick="preguntarCaracteristica('mitico','Mítico')">
+✨ Mítico
+</button>
 
 
-            <button onclick="filtrarCategoria('legendario','Legendario')">
-            🏆 Legendario
-            </button>
+<button onclick="preguntarCaracteristica('pseudo','Pseudo')">
+🐉 Pseudo
+</button>
 
 
-            <button onclick="filtrarCategoria('mitico','Mítico')">
-            ✨ Mítico
-            </button>
+<button onclick="preguntarCaracteristica('inicial','Inicial')">
+🌱 Inicial
+</button>
 
 
-            <button onclick="filtrarCategoria('pseudo','Pseudo')">
-            🐉 Pseudo
-            </button>
+<button onclick="preguntarCaracteristica('eevee','Eevee')">
+🦊 Eevee
+</button>
 
 
-            <button onclick="filtrarCategoria('inicial','Inicial')">
-            🌱 Inicial
-            </button>
+<button onclick="preguntarCaracteristica('paradoja','Paradoja')">
+⚡ Paradoja
+</button>
 
 
-            <button onclick="filtrarCategoria('eevee','Eevee')">
-            🦊 Eevee
-            </button>
-
-
-            <button onclick="filtrarCategoria('paradoja','Paradoja')">
-            ⚡ Paradoja
-            </button>
-
-
-            <button onclick="filtrarCategoria('ultraente','Ultraente')">
-            🌀 Ultraente
-            </button>
-
-
-        </div>
-
-
-    </details>
-
-
-
-
+<button onclick="preguntarCaracteristica('ultraente','Ultraente')">
+🌀 Ultraente
+</button>
 
 
     <details>

@@ -57,7 +57,7 @@ function registrarPartida() {
 // Registrar victoria
 
 function registrarVictoria() {
-
+    console.count("registrarVictoria");
     const stats = obtenerEstadisticas();
 
 
